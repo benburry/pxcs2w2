@@ -1,0 +1,6 @@
+<p>{{ card }}</p>
+
+<form method="post" action="{% url card_solve card.key %}">
+{{ answers.as_p }}
+<input type="submit" />
+</form>
