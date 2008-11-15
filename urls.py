@@ -7,14 +7,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^card/', include('pxcs2w2.card.urls')),
-    # Example:
-    # (r'^pxcs2w2/', include('pxcs2w2.foo.urls')),
-
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
-    # to INSTALLED_APPS to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     (r'^admin/(.*)', admin.site.root),
 )
 
