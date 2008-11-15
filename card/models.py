@@ -57,6 +57,7 @@ class CardSolve(models.Model):
     
     class Meta:
         unique_together = (('user', 'card'),)
+        ordering = ['solved',]
 
 
 class SolverProfile(models.Model):
