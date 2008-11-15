@@ -23,5 +23,5 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^styles/(?P<path>.*)$', static.serve, {'document_root': os.path.join(statics_dir, 'style')}),
         (r'^js/(?P<path>.*)$', static.serve, {'document_root': os.path.join(statics_dir, 'js')}),
-		(r'^images/(?P<path>.*)$', static.serve, {'document_root': os.path.join(statics_dir, 'images')}),
+        (r'^images/(?P<path>.*)$', static.serve, {'document_root': os.path.join(statics_dir, 'images')}),
     )
