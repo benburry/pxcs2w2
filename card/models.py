@@ -40,6 +40,7 @@ class Answer(models.Model):
     card = models.ForeignKey(Card)
     prompt = models.CharField(max_length=64, null=True, blank=True)
     value = models.CharField(max_length=128)
+    data = models.CharField(max_length=256, null=True, blank=True)
     
     def __unicode__(self):
         return self.value
