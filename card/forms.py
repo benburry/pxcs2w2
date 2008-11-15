@@ -1,15 +1,21 @@
 import copy
+from django.utils.datastructures import SortedDict
 from django import forms
 
 class AnswerForm(forms.Form):
     pass
 
+
+def add_field_attrs(field, answer):
+    field.label = answer.prompt or 'Answer'
+    field.answer = answer.value
+
+
 def cardform_factory(card, fieldobj):
-    attrs = {}
-    for answer in card.answer_set.order_by('pk'):
+    attrs = SortedDict()
+    for answer in card.answer_set.order_by('sequence'):
         field = copy.copy(fieldobj)
-        field.label = answer.prompt or 'Answer'
-        field.answer = answer.value
+        add_field_attrs(field, answer)
         attrs['field%s' % answer.pk] = field
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
 
@@ -24,11 +30,10 @@ def selection_factory(card):
 
 
 def multiselection_factory(card):
-    attrs = {}
+    attrs = SortedDict()
     for answer in card.answer_set.order_by('pk'):
         field = forms.ChoiceField(choices=((item.split(',')[0], item.split(',')[1]) for item in answer.data.split('|')))
-        field.label = answer.prompt or 'Answer'
-        field.answer = answer.value
+        add_field_attrs(field, answer)
         attrs['field%s' % answer.pk] = field
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
 
