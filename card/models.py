@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Card(models.Model):
     number = models.PositiveSmallIntegerField(unique=True)
@@ -32,4 +33,19 @@ class Answer(models.Model):
     class Meta:
         ordering = ["key"]
         order_with_respect_to = 'card'
+        
+
+class SolverProfile(models.Model):
+    # This is the only required field
+    user = models.ForeignKey(User, unique=True)
+    
+    solve_start = models.DateTimeField(auto_now_add=True)
+    solve_count = models.PositiveSmallIntegerField(default=0)
+    
+    @property
+    def cansolve(self):
+        return True
+        
+    def incr_attempt(self):
+        pass
         

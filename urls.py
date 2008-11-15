@@ -1,13 +1,18 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
-
-# Uncomment the next two lines to enable the admin:
+from django.contrib.auth.views import login, logout
 from django.contrib import admin
+from django.views.generic.simple import direct_to_template
+from pxcs2w2.default.views import register
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^card/', include('pxcs2w2.card.urls')),
+    url(r'^$', direct_to_template, {'template': 'index.html'}, name='site_root'),
+    (r'^cards/', include('pxcs2w2.card.urls')),
     (r'^admin/(.*)', admin.site.root),
+    (r'^accounts/login/$', login, {'template_name': 'login.html'}),
+    (r'^accounts/logout/$', logout, {'next_page': '/'}),
+    (r'^accounts/register/$', register),
 )
 
 if settings.DEBUG:
