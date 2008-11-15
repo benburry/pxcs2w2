@@ -1,5 +1,7 @@
 import re
-from django.shortcuts import get_object_or_404, render_to_response
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+from django.template import loader, Context, TemplateDoesNotExist
 from pxcs2w2.card.models import Card
 from pxcs2w2.card.forms import build_answer_form
 
@@ -7,11 +9,16 @@ def view_card(request, card_id):
     card = get_object_or_404(Card, number=int(card_id))
     formtype = build_answer_form(card)
     
-    params = {'card': card}
+    c = Context({'card': card})
+    try:
+        t = loader.get_template("card/view_%s.html" % card.key)
+    except TemplateDoesNotExist:
+        t = loader.get_template("card/view.html")
+    
     
     if request.method == 'POST':
         form = formtype(request.POST)
-        params['form'] = form
+        c['form'] = form
         
         if form.is_valid():
             correct = True
@@ -20,15 +27,15 @@ def view_card(request, card_id):
                 if not correct:
                     break
         
-            params['correct'] = correct
+            c['correct'] = correct
             if correct:
-                del params['form']
+                del c['form']
                 
     else:
         form = formtype()
-        params['form'] = form
+        c['form'] = form
         
-    return render_to_response('card/view.html', params)
+    return HttpResponse(t.render(c))
     
 
     
