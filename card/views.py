@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.template import loader, Context, TemplateDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from pxcs2w2.card.models import Card, SolverProfile
+from pxcs2w2.card.models import Card, CardSolve, SolverProfile
 from pxcs2w2.card.forms import build_answer_form
 
 @login_required
@@ -28,7 +28,7 @@ def view_card(request, card_id):
         
             if form.is_valid():       
                 correct = True
-                for match in (re.match(f.data, f.field.correct, re.I) for f in form):
+                for match in (re.match(f.field.answer, f.data.strip(), re.I) for f in form):
                     correct = correct and match is not None
                     if not correct:
                         break
@@ -36,6 +36,12 @@ def view_card(request, card_id):
                 c['correct'] = correct
                 if correct:
                     del c['form']
+                    try:
+                        solve = CardSolve.objects.get(user=request.user, card=card)
+                    except CardSolve.DoesNotExist:
+                        solve = CardSolve(user=request.user, card=card)
+                        solve.save()
+                    
                 else:
                     profile.incr_attempt()
                 

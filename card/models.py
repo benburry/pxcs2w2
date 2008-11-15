@@ -18,6 +18,8 @@ class Card(models.Model):
     colour = models.CharField(max_length=16, choices=CARD_COLOURS)
     hint = models.CharField(max_length=256, null=True, blank=True)
     question = models.TextField(null=True, blank=True)
+    factory = models.CharField(max_length=16, null=True, blank=True)
+    data = models.CharField(max_length=256, null=True, blank=True)
     
     def __unicode__(self):
         return "#%s - %s" % (self.key, self.name)
@@ -36,16 +38,25 @@ class Card(models.Model):
 
 class Answer(models.Model):
     card = models.ForeignKey(Card)
-    key = models.CharField(max_length=1, unique=True)
+    prompt = models.CharField(max_length=64, null=True, blank=True)
     value = models.CharField(max_length=128)
     
     def __unicode__(self):
-        return "%s:%s" % (self.key, self.value)
+        return self.value
         
     class Meta:
-        ordering = ["key"]
+        ordering = ['pk']
         order_with_respect_to = 'card'
-        
+
+
+class CardSolve(models.Model):
+    user = models.ForeignKey(User)
+    card = models.ForeignKey(Card)
+    solved = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        unique_together = (('user', 'card'),)
+
 
 class SolverProfile(models.Model):
     # This is the only required field

@@ -2,12 +2,13 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib.auth.views import login, logout
 from django.contrib import admin
-from django.views.generic.simple import direct_to_template
+from django.views.generic.list_detail import object_list
 from pxcs2w2.default.views import register
+from pxcs2w2.card.models import Card
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', direct_to_template, {'template': 'index.html'}, name='site_root'),
+    url(r'^$', object_list, {'template_name': 'index.html', 'template_object_name': 'card', 'queryset': Card.objects.all()}, name='site_root'),
     (r'^cards/', include('pxcs2w2.card.urls')),
     (r'^admin/(.*)', admin.site.root),
     (r'^accounts/login/$', login, {'template_name': 'login.html'}),
