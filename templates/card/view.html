@@ -1,6 +1,8 @@
 <p>{{ card }}</p>
-
-<form method="post" action="{% url card_solve card.key %}">
-{{ answers.as_p }}
+<p>{{ correct }}</p>
+{% if form %}
+<form method="post" action="">
+{{ form.as_p }}
 <input type="submit" />
 </form>
+{% endif %}

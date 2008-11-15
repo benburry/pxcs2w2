@@ -7,8 +7,10 @@ def build_answer_form(card):
     
     attrs = {}
     for answer in card.answer_set.order_by('key'):
-        attrs[answer.key] = forms.CharField(max_length=128)
+        field = forms.CharField(max_length=128)
+        field.correct = answer.value
+        attrs[answer.key] = field
 
-    return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)()
+    return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
 
 
