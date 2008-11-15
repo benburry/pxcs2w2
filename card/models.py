@@ -1,11 +1,23 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+CARD_COLOURS = (
+    ('Red', 'Red'),
+    ('Orange', 'Orange'),
+    ('Yellow', 'Yellow'),
+    ('Green', 'Green'),
+    ('Blue', 'Blue'),
+    ('Purple', 'Purple'),
+    ('Black', 'Black'),
+    ('Silver', 'Silver'),
+)
+
 class Card(models.Model):
     number = models.PositiveSmallIntegerField(unique=True)
     name = models.CharField(max_length=64)
+    colour = models.CharField(max_length=16, choices=CARD_COLOURS)
     hint = models.CharField(max_length=256, null=True, blank=True)
-    question = models.TextField()
+    question = models.TextField(null=True, blank=True)
     
     def __unicode__(self):
         return "#%s - %s" % (self.key, self.name)
