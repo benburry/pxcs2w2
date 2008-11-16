@@ -54,6 +54,12 @@
 			<p>&copy; <a href="http://www.perplexcity.com" title="View the Perplex City website">Perplex City</a></p> 
 		</div> 
 		<!-- end footer --> 
-			
+		{% if debug %}
+		<div>
+			{% for query in sql_queries %}
+				<p>{{query.sql}} : {{query.time}}</p>
+			{% endfor %}
+		</div>
+		{% endif %}
 	</body> 
 </html>
