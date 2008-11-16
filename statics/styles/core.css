@@ -46,7 +46,7 @@ hr {
 
 body {	
 	font-size: small;
-	background: #937a96 url(images/00-bground.jpg) top left repeat-x;
+	background: #937a96 url(/images/00-bground.jpg) top left repeat-x;
 	text-align: center;
 	/* margin: 0px 0 0 0; */
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -72,7 +72,7 @@ p {
 
 .header { 
 	text-indent: -9999px; 
-	background: url(images/pxc.png) no-repeat;
+	background: url(/images/pxc.png) no-repeat;
 	width: 362px;
 	height: 135px;
 	margin-left: 300px;
@@ -80,7 +80,7 @@ p {
 }
 
 * html body .header { 
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://beta.perplexcity.comimages/pxc.png", sizingMethod='scale'); 
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://beta.perplexcity.com/images/pxc.png", sizingMethod='scale'); 
 	background-image: none;
 }
 
@@ -102,7 +102,7 @@ p {
 #header div#beta {
 	width: 89px;
 	height: 85px;	
-	background: url(images/beta-badge.png) no-repeat;
+	background: url(/images/beta-badge.png) no-repeat;
 	position: absolute;
 	top: 0px;
 	margin-left: 240px;
@@ -110,14 +110,14 @@ p {
 }
 
 * html body #header div#beta { 
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://beta.perplexcity.comimages/beta-badge.png", sizingMethod='scale'); 
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://beta.perplexcity.com/images/beta-badge.png", sizingMethod='scale'); 
 	background-image: none;
 }
 
 h1.main-heading {
 	width: 791px;
 	height: 50px;
-	background-image: url(images/main-heading.gif);
+	background-image: url(/images/main-heading.gif);
 	text-indent: -9999px;
 }
 
@@ -146,7 +146,7 @@ h1.main-heading {
 #inside h2.create {
 	width: 402px;
 	height: 29px;
-	background: url(images/heading-create.gif) no-repeat;
+	background: url(/images/heading-create.gif) no-repeat;
 	text-indent: -9999px;
 }
 
@@ -217,14 +217,14 @@ a:hover {
 
 html>body #nav a:hover {
 	color: #fff;
-	background: #937a96 url(images/nhov-bottom.gif) no-repeat bottom right;
+	background: #937a96 url(/images/nhov-bottom.gif) no-repeat bottom right;
 }
 
 /* active state */
 
 #nav li.active a {
 	color: #fff;
-	background: #937a96 url(images/nhov-bottom.gif) no-repeat bottom right;
+	background: #937a96 url(/images/nhov-bottom.gif) no-repeat bottom right;
 }
 
 /* =Main Content
@@ -233,7 +233,7 @@ html>body #nav a:hover {
 #header {
 	width: 915px;
 	height: 216px;
-	background: url(images/header-bg.jpg) no-repeat;
+	background: url(/images/header-bg.jpg) no-repeat;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -251,7 +251,7 @@ html>body #nav a:hover {
 #main { /* puzzle page */
 	width: 792px;
 	height: 557px;
-	background-image: url(images/main-bground.jpg);
+	background-image: url(/images/main-bground.jpg);
 }
 
 /* --------------- Final & Saved Puzzle pages */
@@ -259,55 +259,55 @@ html>body #nav a:hover {
 #main-black {
 	width: 792px;
 	height: 557px;
-	background-image: url(images/main-bground-black.jpg);
+	background-image: url(/images/main-bground-black.jpg);
 }
 
 #main-blue {
 	width: 792px;
 	height: 557px;
-	background-image: url(images/main-bground-blue.jpg);
+	background-image: url(/images/main-bground-blue.jpg);
 }
 
 #main-green {
 	width: 792px;
 	height: 557px;
-	background-image: url(images/main-bground-green.jpg);
+	background-image: url(/images/main-bground-green.jpg);
 }
 
 #main-orange {
 	width: 792px;
 	height: 557px;
-	background-image: url(images/main-bground-orange.jpg);
+	background-image: url(/images/main-bground-orange.jpg);
 }
 
 #main-purple {
 	width: 792px;
 	height: 557px;
-	background-image: url(images/main-bground-purple.jpg);
+	background-image: url(/images/main-bground-purple.jpg);
 }
 
 #main-red {
 	width: 792px;
 	height: 557px;
-	background-image: url(images/main-bground-red.jpg);
+	background-image: url(/images/main-bground-red.jpg);
 }
 
 #main-teal {
 	width: 792px;
 	height: 557px;
-	background-image: url(images/main-bground-teal.jpg);
+	background-image: url(/images/main-bground-teal.jpg);
 }
 
 #main-yellow {
 	width: 792px;
 	height: 557px;
-	background-image: url(images/main-bground-yellow.jpg);
+	background-image: url(/images/main-bground-yellow.jpg);
 }
 
 #main-silver {
 	width: 792px;
 	height: 557px;
-	background-image: url(images/main-bground-silver.jpg);
+	background-image: url(/images/main-bground-silver.jpg);
 }
 
 
@@ -415,7 +415,7 @@ html>body #nav a:hover {
 
 #inside { /* normal pages */
 	width: 792px;
-	background: url(images/main-tile.jpg) repeat-y;
+	background: url(/images/main-tile.jpg) repeat-y;
 }
 
 #inside-content {
@@ -423,7 +423,7 @@ html>body #nav a:hover {
 	min-height: 246px;
 	height: auto !important;
   	height: 246px;
-	background: url(images/main-top.jpg) no-repeat;
+	background: url(/images/main-top.jpg) no-repeat;
 	padding: 18px 20px 0 20px;
 	font-family: Arial, Helvetica, Geneva, sans-serif;
 }
@@ -431,7 +431,7 @@ html>body #nav a:hover {
 /* <p> Rounded corners */
 
 #inside-content .p-box {
-	background: #fff url(images/p-box-top.gif) top left no-repeat;
+	background: #fff url(/images/p-box-top.gif) top left no-repeat;
 	padding: 10px;
 }
 
@@ -440,7 +440,7 @@ html>body #nav a:hover {
 }
 
 #inside-content .p-box-bottom {
-	background: #fff url(images/p-box-bottom.gif) bottom left no-repeat;
+	background: #fff url(/images/p-box-bottom.gif) bottom left no-repeat;
 	height: 47px;
 	margin-bottom: 0.9em;
 }
@@ -454,20 +454,20 @@ html>body #nav a:hover {
 #main-bottom {
 	width: 792px;
 	height: 33px;
-	background: url(images/main-bottom.jpg) top left no-repeat;
+	background: url(/images/main-bottom.jpg) top left no-repeat;
 }
 
 #create-box {
 	width: 533px;
 	height: 507px;
-	background-image: url(images/create-box-bground.png);
+	background-image: url(/images/create-box-bground.png);
 	position: absolute;
 	z-index: 3;
 	margin: 20px 0 0 20px;
 }
 
 * html body #create-box   { 
-	background-image: url(images/create-box-bground.gif);
+	background-image: url(/images/create-box-bground.gif);
 }
 
 #create-main {
@@ -481,7 +481,7 @@ html>body #nav a:hover {
 	height: 443px;
 	position: absolute;
 	margin: 53px 0 0 520px;
-	background: url(images/sidebar-bground.gif) no-repeat;
+	background: url(/images/sidebar-bground.gif) no-repeat;
 	font-size: 85%;
 }
 
@@ -518,13 +518,13 @@ html>body #nav a:hover {
 	position: absolute;
 	top: 38px;
 	margin-left: 610px;
-	background: url(images/login-bground.png) no-repeat;
+	background: url(/images/login-bground.png) no-repeat;
 	font-size: 85%;
 	color: #fff;
 }
 
 * html body #login   { 
-	/* background: url(images/login-bground.gif) no-repeat; */
+	/* background: url(/images/login-bground.gif) no-repeat; */
 	background-image: none;
 }
 
@@ -656,7 +656,7 @@ p.spacer {
 }
 
 a.tell-friends {
-	background: #ece9d8 url(images/mailicon.gif) no-repeat;
+	background: #ece9d8 url(/images/mailicon.gif) no-repeat;
 	padding: 5px 5px 5px 25px;
 	font-size: 85%;
 	color: #666;
@@ -664,7 +664,7 @@ a.tell-friends {
 }
 
 a.tell-friends:hover {
-	background: #ece9d8 url(images/mailicon.gif) no-repeat;
+	background: #ece9d8 url(/images/mailicon.gif) no-repeat;
 	color: #333;
 	border-bottom: 0px;
 	text-decoration: none;
@@ -673,7 +673,7 @@ a.tell-friends:hover {
 /* Form backgrounds */
 	
 #question-box {
-	background: url(images/form-question-bg.gif) top left no-repeat;
+	background: url(/images/form-question-bg.gif) top left no-repeat;
 	width: 480px;
 	height: 58px;
 	padding: 5px;
@@ -681,7 +681,7 @@ a.tell-friends:hover {
 }
 
 .puzzle-form-outer {
-	background: url(images/form-question-bg.gif) top left no-repeat;
+	background: url(/images/form-question-bg.gif) top left no-repeat;
 	width: 480px;
 	height: 58px;
 	padding: 5px;
@@ -715,7 +715,7 @@ a.tell-friends:hover {
 a#upload-btn {
 	width: 149px;
 	height: 112px;
-	background: url(images/upload.gif) bottom left no-repeat;
+	background: url(/images/upload.gif) bottom left no-repeat;
 	margin: 50px 0 0 180px !important;
 	text-indent: -9999px;
 	border-bottom: 0px; 
@@ -724,7 +724,7 @@ a#upload-btn {
 }
 
 a:hover#upload-btn {
-	background: url(images/upload.gif) top left no-repeat;
+	background: url(/images/upload.gif) top left no-repeat;
 	border-bottom: 0px;
 }
 
@@ -735,13 +735,13 @@ a:hover#upload-btn {
 	height: 160px;
 	position: absolute;
 	margin: 0px 0 0 280px;
-	background: url(images/bubble.png) top left no-repeat;
+	background: url(/images/bubble.png) top left no-repeat;
 	font-size: 85%;
 	z-index: 20;
 }
 
 * html body #browser   { 
-	background: url(images/bubble.gif) top left no-repeat;
+	background: url(/images/bubble.gif) top left no-repeat;
 }
 
 #browser div {
@@ -765,7 +765,7 @@ a:hover#upload-btn {
 	position: absolute;
 	width: 502px;
 	height: 164px;
-	background: url(images/answers-bground.gif) top left no-repeat;
+	background: url(/images/answers-bground.gif) top left no-repeat;
 	margin: 237px 0 0 12px;
 }
 
@@ -784,11 +784,11 @@ a:hover#upload-btn {
 .valid-bubble {
 	width: 169px;
 	height: 64px;
-	background: url(images/validation-bubble.png) top left no-repeat;
+	background: url(/images/validation-bubble.png) top left no-repeat;
 }
 
 * html body .valid-bubble   { 
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/validation-bubble.png", sizingMethod='scale'); 
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/validation-bubble.png", sizingMethod='scale'); 
 	background-image: none;
 }
 
@@ -916,13 +916,13 @@ ol li {
 .homepage-box {
 	width: 360px; /* 364px with testing borders */
 	float: left;
-	background: #735d76 url(images/homepage-box-bottom.gif) bottom left no-repeat;
+	background: #735d76 url(/images/homepage-box-bottom.gif) bottom left no-repeat;
 }
 
 .homepage-box h3 {
 	color: #fff;
 	padding: 6px 8px 4px 10px;
-	background: #735d76 url(images/homepage-box-top.gif) top left no-repeat;
+	background: #735d76 url(/images/homepage-box-top.gif) top left no-repeat;
 }
 
 .homepage-box p {
@@ -969,26 +969,26 @@ ol li {
 	position: absolute;
 	top: 150px;
 	margin-left: 420px;
-	background: url(images/feedback-bubble.png) top left no-repeat;
+	background: url(/images/feedback-bubble.png) top left no-repeat;
 	height: 313px;
 	width: 232px;
 }
 
 * html body #sendfeedback-div   { 
-	background: url(images/feedback-bubble.gif) top left no-repeat;
+	background: url(/images/feedback-bubble.gif) top left no-repeat;
 }
 
 #email-div {
 	position: absolute;
 	top: 150px;
 	margin-left: 180px;
-	background: url(images/feedback-bubble.png) top left no-repeat;
+	background: url(/images/feedback-bubble.png) top left no-repeat;
 	height: 313px;
 	width: 232px;
 }
 	
 * html body #email-div   { 
-	background: url(images/feedback-bubble.gif) top left no-repeat;
+	background: url(/images/feedback-bubble.gif) top left no-repeat;
 }
 
 /* -------------------------------------- */
@@ -1043,7 +1043,7 @@ ol li {
 	position: relative;
 	width: 744px;
 	height: 452px;
-	background: url(images/puzzle-float.jpg) no-repeat;
+	background: url(/images/puzzle-float.jpg) no-repeat;
 	margin-left: 23px;
 	top: 7px;
 	font-size: 85%;
@@ -1076,7 +1076,7 @@ p.diff-cat {
 }
 
 p.diff-cat strong {
-	background: url(images/arrow.gif) no-repeat;
+	background: url(/images/arrow.gif) no-repeat;
 	padding-left: 15px;
 }
 
@@ -1111,13 +1111,13 @@ p.diff-cat strong {
 }
 
 .puzzle-float-footer a.send-bg {
-	background: url(images/friend.gif) no-repeat;
+	background: url(/images/friend.gif) no-repeat;
 	padding-left: 16px;
 	border-bottom: 0px;
 }
 
 .puzzle-float-footer a.feedback-bg {
-	background: url(images/email.gif) no-repeat;
+	background: url(/images/email.gif) no-repeat;
 	padding-left: 20px;
 	border-bottom: 0px;
 }
@@ -1143,14 +1143,14 @@ p.diff-cat strong {
 }
 
 #correct {
-	background: #bde4ab url(images/correct.gif) left no-repeat;
+	background: #bde4ab url(/images/correct.gif) left no-repeat;
 	color: #2e8b04;
 	border: 3px solid #2e8b04;
 	padding-left: 25px;
 }
 
 #incorrect {
-	background: #f8a0a0 url(images/incorrect.gif) left no-repeat;
+	background: #f8a0a0 url(/images/incorrect.gif) left no-repeat;
 	color: #ac1010;
 	border: 3px solid #ac1010;
 	padding-left: 25px;
@@ -1179,7 +1179,7 @@ p.diff-cat strong {
 .answer-div {
 	width: 350px;
 	display: block;
-	background: url(images/main-final-answer.gif) repeat-x;
+	background: url(/images/main-final-answer.gif) repeat-x;
 	border-bottom-color: #7f7081;
 	border-left-color: #7f7081;
 	border-right-color: #aca1ae;
