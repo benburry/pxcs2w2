@@ -64,10 +64,10 @@ def view_card(request, card_id):
             form = formtype()
             c['form'] = form
         
+    if attempt.cansolve:
+        return HttpResponse(t.render(c))
     else:
         return render_to_response('card/exceeded.html', {'card': card})
-        
-    return HttpResponse(t.render(c))
 
 
 def get_attempt(request, card):
