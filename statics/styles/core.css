@@ -588,6 +588,8 @@ html>body #nav a:hover {
 	color: #fff;
 }	
 
+<<<<<<< .mine
+=======
 #username, #password {
 	width: 70px;
 	color: #4e3d50;
@@ -599,6 +601,7 @@ html>body #nav a:hover {
 	margin-right: 5px;
 }
 
+>>>>>>> .r55
 .form-labels label {
 	display: block;
 	font-size: 100%;	
@@ -1275,7 +1278,7 @@ a#retrolink:hover, div.hiddenstory a:hover {
 }
 
 .long-card-box {
-	width: 710px;
+	width: auto;
 	float: none;
 	
 	margin-bottom: 15px;
@@ -1321,23 +1324,61 @@ a#retrolink:hover, div.hiddenstory a:hover {
 }
 
 .form-center p {
-	margin: 0;2
+	margin: 0;
 }
 
 
-.form-center input {
+.form-center input, .answer-form input {
 	background-color: #eee;
 	border: 1px solid #333 !important;
 	font-size: 13px !important;
 	
-	padding: 4px !important;
+	padding: 2px !important;
 	margin-bottom: 3px !important;
+}
+
+.answer-form select {
+	padding: 3px;
+	background-color: #eee;
 }
 
 .form-center label {
 	display: inline;	
 }
 
-.work { color: #cc0000}
+.answer-form th {
+	min-width: 40px;
+	padding-right: 10px;
+	
+}
 
+.answer-form td {
+	padding: 3px;	
+}
+
+.question-text p {
+	font-size: 1.2em;	
+	font-weight: bold;
+}
+
+.answer-correct, .answer-incorrect {
+	padding: 6px;
+	border: 1px dashed #addfad;
+	background-color: #e1f1d1;
+	color: #006400;
+	font-weight: bold;
+	
+	width: 300px;
+	margin-bottom: 10px;
+}
+
+.answer-incorrect {
+	border: 1px dashed #ce2029;
+	background-color: #ffcccc;
+	color: #ce2029;
+}
+
+.answer-correct p, .answer-incorrect p {
+	margin: 0; padding: 0;	
+}
 
