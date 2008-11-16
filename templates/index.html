@@ -5,11 +5,14 @@
 					<h1>Perplex City S2W2 Card Solver</h1> 
 					{% if user.is_authenticated %}
 						<div align="center">
-							<p>Logged in as <b>{{ user.username }}</b> (<a href="{% url logout %}">logout</a>)</p>
+							<p>Logged in as <b>{{ user.username }}</b></p>
 						</div>
 					{% else %}
 					<div class="form-center">
-						<form method="post" action="">
+						{% if login_error %}
+						  <p class="error">That's not a valid username or password</p>
+						{% endif %}
+						<form method="post" action=".">
 							<p><label for="username">Username:</label> <input id="username" name="username" type="text" />
 							<label for="password">Password:</label> <input class="work" id="password" name="password" type="password" />
 							<input type="submit" value="Sign in" /></p>

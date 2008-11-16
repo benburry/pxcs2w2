@@ -5,6 +5,7 @@ from django.template import loader, Context, TemplateDoesNotExist, RequestContex
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from pxcs2w2.card.models import Card, CardSolve, SolveAttempt
 from pxcs2w2.card.forms import build_answer_form
 
@@ -17,6 +18,19 @@ def solved_cards(request, username):
 
 def card_list(request):
     cards = Card.objects.all()
+    template_vars = {'card_list': cards}
+    
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+            else:
+                template_vars['login_error'] = True
+        else:
+            template_vars['login_error'] = True
     
     if request.user.is_authenticated():
         card_dict = {}
@@ -27,7 +41,7 @@ def card_list(request):
         for solve in solves:
             card_dict[solve.card_id].solved = True
     
-    return render_to_response('index.html', {'card_list': cards}, context_instance=RequestContext(request))
+    return render_to_response('index.html', template_vars, context_instance=RequestContext(request))
 
 
 @login_required
