@@ -1,3 +1,6 @@
+{% extends "base.tpl" %}
+{% block body %}
 {% for solve in solves %}
   <p>{{ solve.card }}</p>
 {% endfor %}
+{% endblock %}

@@ -1,3 +1,5 @@
+{% extends "base.tpl" %}
+{% block body %}
 <p>{{ card }}</p>
 <p><img src="/images/card/{{ card.key }}.png" /></p>
 {% if not solved %}
@@ -17,3 +19,4 @@
 {% else %}
 <p>You have already solved this card</p>
 {%endif%}
+{% endblock body %}

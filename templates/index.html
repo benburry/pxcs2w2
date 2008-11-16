@@ -1,3 +1,6 @@
+{% extends "base.tpl" %}
+{% block body %}
 {% for card in card_list %}
 <p><a href="{{card.get_absolute_url}}">{{ card }}</a>{% if card.solved %} solved{% endif %}</p>
 {% endfor %}
+{% endblock body %}

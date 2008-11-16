@@ -1,3 +1,5 @@
+{% extends "base.tpl" %}
+{% block body %}
 {% if form.errors %}
   <p class="error">Sorry, that's not a valid username or password</p>
 {% endif %}
@@ -12,3 +14,4 @@
   <input type="hidden" name="next" value="{{ next|escape }}" />
 </form>
 <p><a href="{% url register %}">Register</a></p>
+{% endblock body %}
