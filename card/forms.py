@@ -18,7 +18,7 @@ def _correct(self):
             
             
 def add_field_attrs(field, answer):
-    field.label = answer.prompt or 'Answer'
+    field.label = answer.prompt or 'What is the answer?'
     field.answer = answer.value
 
 
