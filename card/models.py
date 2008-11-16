@@ -18,7 +18,8 @@ class Card(models.Model):
     name = models.CharField(max_length=64)
     colour = models.CharField(max_length=16, choices=CARD_COLOURS)
     hint = models.CharField(max_length=256, null=True, blank=True)
-    question = models.TextField(null=True, blank=True)
+    notes = models.CharField(max_length=256, null=True, blank=True)
+    question = models.CharField(max_length=256,null=True, blank=True)
     factory = models.CharField(max_length=16, null=True, blank=True)
     data = models.CharField(max_length=256, null=True, blank=True)
     

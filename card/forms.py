@@ -35,7 +35,7 @@ def _positional_correct(self):
     
             
 def add_field_attrs(field, answer):
-    field.label = answer.prompt or 'What is the answer?'
+    field.label = answer.prompt or 'Answer'
     field.answer = answer.value
 
 

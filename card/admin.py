@@ -18,7 +18,7 @@ class CardAdmin(admin.ModelAdmin):
                 'fields': ('number', 'name', 'colour',)
             }),
             (None, {
-                'fields': ('hint', 'question',)
+                'fields': ('hint', 'question', 'notes', )
             }),
             ('Advanced options', {
                 'classes': ('collapse',),
