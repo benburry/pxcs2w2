@@ -5,17 +5,14 @@
 
 <div class="card-rows">
 {% for solve in solves %}
-{% if forloop.counter|divisibleby:"4" %}
+{% if forloop.counter0|divisibleby:"4" %}
 </div>
 <div class="card-rows">
 {% endif %}
-<div class="card-box">
-	<img src="/images/card/{{solve.card.key}}.png" class="card-image" />
-	<p class="number"><span class="{{solve.card.colour}}">#{{solve.card.key}}</span></p>
-	<p class="title">{{solve.card.name}}</p>
-</div>
+{% with solve.card as card %}
+{% include "card_snippet.tpl" %}
+{% endwith %}
 {% endfor %}
-</div>
 </div>
 					<div class="clear"></div> 
 				</div> 

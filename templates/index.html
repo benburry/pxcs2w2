@@ -23,7 +23,7 @@
 				</div> 
 				
 				<div class="p-box"> 
-					<h2 align="center">Choose a card to solve</h2>
+					{% if user.is_authenticated %}<h2 align="center">Choose a card to solve</h2>{% endif %}
 
 <div class="card-rows">
 {% for card in card_list %}
@@ -31,11 +31,7 @@
 </div>
 <div class="card-rows">
 {% endif %}
-<div class="card-box{% if card.solved %} solved{% endif %}">
-	<img src="/images/card/{{card.key}}.png" class="card-image" />
-	<p class="number"><span class="{{card.colour|lower}}">#{{card.key}}</span></p>
-	<p class="title">{% if user.is_authenticated %}<a href="{{card.get_absolute_url}}">{{card.name}}</a>{% else %}{{card.name}}{% endif %}</p>
-</div>
+{% include "card_snippet.tpl" %}
 {% endfor %}
 </div>
 
