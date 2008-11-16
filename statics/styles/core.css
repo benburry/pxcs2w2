@@ -1394,3 +1394,8 @@ a#retrolink:hover, div.hiddenstory a:hover {
 .answer-correct p, .answer-incorrect p, .already-solved p {
 	margin: 0; padding: 0;	
 }
+
+ul.errorlist {
+	margin-bottom: 0 !important;
+	color: #cc0000;
+}
