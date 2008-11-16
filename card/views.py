@@ -1,7 +1,7 @@
 import re, datetime
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
-from django.template import loader, Context, TemplateDoesNotExist
+from django.template import loader, Context, TemplateDoesNotExist, RequestContext
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
@@ -12,7 +12,7 @@ from pxcs2w2.card.forms import build_answer_form
 def solved_cards(request, username):
     user = get_object_or_404(User, username=username)
     solves = CardSolve.objects.filter(user=user)
-    return render_to_response('card/solves.html', {'solves': solves})
+    return render_to_response('card/solves.html', {'solves': solves}, context_instance=RequestContext(request))
 
 
 def card_list(request):
@@ -27,7 +27,7 @@ def card_list(request):
         for solve in solves:
             card_dict[solve.card_id].solved = True
     
-    return render_to_response('index.html', {'card_list': cards})
+    return render_to_response('index.html', {'card_list': cards}, context_instance=RequestContext(request))
 
 
 @login_required
@@ -38,7 +38,7 @@ def view_card(request, card_id):
     except CardSolve.DoesNotExist:
         cardsolve = None
     
-    c = Context({'card': card})
+    c = RequestContext(request, {'card': card})
     t = loader.select_template(["card/view_%s.html" % card.key, 'card/view.html'])
     c['solved'] = cardsolve
         
@@ -73,7 +73,7 @@ def view_card(request, card_id):
     if cardsolve is not None or attempt.cansolve:
         return HttpResponse(t.render(c))
     else:
-        return render_to_response('card/exceeded.html', {'card': card})
+        return render_to_response('card/exceeded.html', {'card': card}, context_instance=RequestContext(request))
 
 
 def get_attempt(request, card):

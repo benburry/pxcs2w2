@@ -40,8 +40,10 @@
 			<h3 class="hide">Main navigation:</h3> 
 			<ul id="nav"> 
 				<li class="active"><a accesskey="s" title="Solve" href="/">Solve</a></li> 
-				<li><a accesskey="s" title="Profile" href="/users/XXX">Profile</a></li> 				
-				<li><a accesskey="l" title="Sign out"  href="/">Sign out</a></li> 
+				{% if user.is_authenticated %}
+				<li><a accesskey="s" title="Profile" href="{% url solved_view user.username %}">Profile</a></li> 				
+				<li><a accesskey="l" title="Sign out"  href="{% url logout %}">Sign out</a></li> 
+				{% endif %}
 			</ul> 
 		</div><!-- end wrapper -->	
 		</div> 

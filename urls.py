@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     (r'^cards/', include('pxcs2w2.card.urls')),
     (r'^admin/(.*)', admin.site.root),
     (r'^accounts/login/$', login, {'template_name': 'login.html'}),
-    (r'^accounts/logout/$', logout, {'next_page': '/'}),
+    url(r'^accounts/logout/$', logout, {'next_page': '/'}, name='logout'),
     url(r'^accounts/register/$', register, name='register'),
 )
 

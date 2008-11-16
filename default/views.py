@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.contrib.auth.forms import UserCreationForm
 from django.core.urlresolvers import reverse
+from django.template import RequestContext
 
 def register(request):
 
@@ -14,5 +15,5 @@ def register(request):
     else:
         form = UserCreationForm()
 
-    return render_to_response("register.html", {'form' : form})
+    return render_to_response("register.html", {'form' : form}, context_instance=RequestContext(request))
 
