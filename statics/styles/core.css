@@ -1284,6 +1284,10 @@ a#retrolink:hover, div.hiddenstory a:hover {
 	margin-bottom: 15px;
 }
 
+.solved {
+	background-color: #e1f1d1;	
+}
+
 .card-box p {
 	color: #777;
 }
@@ -1361,7 +1365,12 @@ a#retrolink:hover, div.hiddenstory a:hover {
 	font-weight: bold;
 }
 
-.answer-correct, .answer-incorrect {
+.solve-notes p {
+	font-size: 1.1em;
+	color: #444;
+}
+
+.answer-correct, .answer-incorrect, .already-solved {
 	padding: 6px;
 	border: 1px dashed #addfad;
 	background-color: #e1f1d1;
@@ -1378,7 +1387,6 @@ a#retrolink:hover, div.hiddenstory a:hover {
 	color: #ce2029;
 }
 
-.answer-correct p, .answer-incorrect p {
+.answer-correct p, .answer-incorrect p, .already-solved p {
 	margin: 0; padding: 0;	
 }
-
