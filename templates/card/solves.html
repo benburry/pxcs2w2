@@ -1,6 +1,22 @@
 {% extends "base.tpl" %}
 {% block body %}
+		
+				<div class="p-box"> 
+
+<div class="card-rows">
 {% for solve in solves %}
-  <p>{{ solve.card }}</p>
+{% if forloop.counter|divisibleby:"4" %}
+</div>
+<div class="card-rows">
+{% endif %}
+<div class="card-box">
+	<img src="/images/card/{{solve.card.key}}.png" class="card-image" />
+	<p class="number"><span class="{{solve.card.colour}}">#{{solve.card.key}}</span></p>
+	<p class="title">{{solve.card.name}}</p>
+</div>
 {% endfor %}
-{% endblock %}
+
+					<div class="clear"></div> 
+				</div> 
+				<div class="p-box-bottom p-last"></div> 
+{% endblock body %}

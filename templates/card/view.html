@@ -1,12 +1,36 @@
 {% extends "base.tpl" %}
 {% block body %}
-<p>{{ card }}</p>
-<p><img src="/images/card/{{ card.key }}.png" /></p>
+				<div class="p-box"> 
+					<h1>Perplex City S2W2 Card Solver</h1> 
+				</div> 
+				
+				<div class="p-box"> 
+					
+					<div class="card-box long-card-box">
+						<img src="/images/card/{{card.key}}.png" class="card-image" />
+						<p class="number"><span class="{{card.colour}}">#{{card.key}}</span></p>
+						<p class="title"><a href="{{card.get_absolute_url}}">{{card.name}}</a></p>
+					</div>
+
 {% if not solved %}
-<p>{{ card.question|safe }}</p>
-<p>{{ correct }}</p>
+					<div class="question-text">
+						<p>{{ card.question|safe }}</p>
+					</div>
+
+{% if correct %}
+					<div class="answer-correct">
+						<p>Win</p>
+					</div>
+{% else %}
+					<div class="answer-incorrect">
+						<p>Fail</p>
+					</div>
+{% endif %}
+					
+					
 {% if form %}
-<form method="post" action="">
+					<div class="answer-form">
+						<form method="post" action="">
 {% block solveform %}
 <table>
 {{ form.as_table }}
@@ -14,9 +38,16 @@
 <tr><td colspan="2" align="right"><input type="submit" /></td></tr>
 </table>
 {% endblock solveform %}
-</form>
+						</form>
 {% endif %}
 {% else %}
-<p>You have already solved this card</p>
+<div class="already-solved">
+	<p>You have already solved this card</p>
+</div>
 {%endif%}
 {% endblock body %}
+					</div>
+
+					<div class="clear"></div> 
+				</div> 
+				<div class="p-box-bottom p-last"></div> 
