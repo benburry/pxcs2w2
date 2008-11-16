@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -61,17 +62,31 @@ class CardSolve(models.Model):
         ordering = ['solved',]
 
 
-class SolverProfile(models.Model):
-    # This is the only required field
-    user = models.ForeignKey(User, unique=True)
+class SolveAttempt(models.Model):
+    user = models.ForeignKey(User)
+    card = models.ForeignKey(Card)
     
     solve_start = models.DateTimeField(auto_now_add=True)
-    solve_count = models.PositiveSmallIntegerField(default=0)
+    attempt_count = models.PositiveSmallIntegerField(default=0)
     
+    class Meta:
+        unique_together = (('user', 'card'),)
+    
+    def _expired(self):
+        now = datetime.datetime.now()
+        delta = now - (self.solve_start or now)
+        
+        return delta.seconds > 86400
+
     @property
     def cansolve(self):
-        return True
+        return self._expired() or self.attempt_count < 3
         
     def incr_attempt(self):
-        pass
+        if self._expired():
+            self.solve_start = datetime.datetime.now()
+            self.attempt_count = 1
+        else:
+            self.attempt_count += 1
+        self.save()
         
