@@ -16,11 +16,11 @@
 {% else %}
 {% if not solved %}
 					<div class="question-text">
-						<p>{{ card.question|safe }}</p>
+						<p>{{ card.question|default_if_none:""|safe }}</p>
 					</div>
 					
 					<div class="solve-notes">
-						<p>{{ card.notes|safe }}</p>
+						<p>{{ card.notes|default_if_none:""|safe }}</p>
 					</div>
 
 {% if correct %}
