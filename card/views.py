@@ -40,6 +40,7 @@ def view_card(request, card_id):
     
     c = Context({'card': card})
     t = loader.select_template(["card/view_%s.html" % card.key, 'card/view.html'])
+    c['solved'] = cardsolve
         
     if cardsolve is None:
         attempt = get_attempt(request, card)
@@ -68,12 +69,8 @@ def view_card(request, card_id):
             else:
                 form = formtype()
                 c['form'] = form
-       
-    else:
-        c['solved'] = True
-        return HttpResponse(t.render(c))
     
-    if attempt.cansolve:
+    if cardsolve is not None or attempt.cansolve:
         return HttpResponse(t.render(c))
     else:
         return render_to_response('card/exceeded.html', {'card': card})
