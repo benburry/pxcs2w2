@@ -13,7 +13,7 @@ from pxcs2w2.card.forms import build_answer_form
 def solved_cards(request, username):
     user = get_object_or_404(User, username=username)
     solves = CardSolve.objects.filter(user=user)
-    return render_to_response('card/solves.html', {'solves': solves}, context_instance=RequestContext(request))
+    return render_to_response('card/solves.html', {'solves': solves, 'username': username}, context_instance=RequestContext(request))
 
 
 def card_list(request):
