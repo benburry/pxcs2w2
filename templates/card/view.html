@@ -11,7 +11,7 @@
 
 {% if exceeded %}
 	<div class="answer-incorrect">
-		<p>Sorry, you have exceeded your allowed attempts at this card today.</p>
+		<p>Sorry, you can only attempt to solve a card 3 times in 24 hours.</p>
 	</div>
 {% else %}
 {% if not solved %}
@@ -53,9 +53,11 @@
 </div>
 {%endif%}
 {% endif %}
-{% endblock body %}
+
 					</div>
 
 					<div class="clear"></div> 
 				</div> 
 				<div class="p-box-bottom p-last"></div> 
+				
+{% endblock body %}

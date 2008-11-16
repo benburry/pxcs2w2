@@ -1285,7 +1285,11 @@ a#retrolink:hover, div.hiddenstory a:hover {
 }
 
 .solved {
+	width: 158px;
+	height: 58px;
 	background-color: #e1f1d1;	
+	
+	border: 1px dashed #addfad;
 }
 
 .card-box p {
