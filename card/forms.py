@@ -89,7 +89,7 @@ def form106_factory(card):
 def form147_factory(card):
     attrs = SortedDict()
     for answer in card.answers:
-        field = forms.CharField(max_length=128, initial=answer.value[1].upper())
+        field = forms.CharField(max_length=128, initial=answer.value[1].upper(), widget=forms.TextInput(attrs={'size':'8'}))
         add_field_attrs(field, answer)
         attrs['field%s' % answer.sequence] = field
     attrs['is_correct'] = _correct
