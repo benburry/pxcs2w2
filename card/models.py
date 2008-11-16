@@ -33,6 +33,10 @@ class Card(models.Model):
     def key(self):
         return "%03u" % self.number
         
+    @property
+    def answers(self):
+        return self.answer_set.order_by('sequence', 'prompt')
+        
     class Meta:
         ordering = ["number"]
 

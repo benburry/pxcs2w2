@@ -32,7 +32,7 @@ def _positional_correct(self):
             if re.match(answers[pos], f.data.strip(), re.I) is None:
                 return False
     return True
-            
+    
             
 def add_field_attrs(field, answer):
     field.label = answer.prompt or 'What is the answer?'
@@ -41,7 +41,7 @@ def add_field_attrs(field, answer):
 
 def cardform_factory(card, fieldobj):
     attrs = SortedDict()
-    for answer in card.answer_set.order_by('sequence', 'prompt'):
+    for answer in card.answers:
         field = copy.copy(fieldobj)
         add_field_attrs(field, answer)
         attrs['field%s' % answer.sequence or answer.pk] = field
@@ -60,7 +60,7 @@ def selection_factory(card):
 
 def multiselection_factory(card):
     attrs = SortedDict()
-    for answer in card.answer_set.order_by('sequence', 'prompt'):
+    for answer in card.answers:
         if answer.data:
             field = forms.ChoiceField(choices=((item.split(',')[0], item.split(',')[1]) for item in answer.data.split('|')))
         else:
@@ -73,7 +73,7 @@ def multiselection_factory(card):
     
 def simplepositional_factory(card):
     attrs = SortedDict()
-    for answer in card.answer_set.order_by('sequence', 'prompt'):
+    for answer in card.answers:
         field = forms.CharField(max_length=128)
         add_field_attrs(field, answer)
         field.answer = answer.data
@@ -81,10 +81,37 @@ def simplepositional_factory(card):
     attrs['is_correct'] = _positional_correct
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
 
+
+def form106_factory(card):
+    return cardform_factory(card, forms.CharField(max_length=1, widget=forms.TextInput(attrs={'size':'1'})))
     
+    
+def form147_factory(card):
+    attrs = SortedDict()
+    for answer in card.answers:
+        field = forms.CharField(max_length=128, initial=answer.value[1].upper())
+        add_field_attrs(field, answer)
+        attrs['field%s' % answer.sequence or answer.pk] = field
+    attrs['is_correct'] = _correct
+    return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
+
+
+def form205_factory(card):
+    attrs = SortedDict()
+    for answer in card.answers:
+        if answer.data:
+            field = forms.ChoiceField(choices=((item.split(',')[0], item.split(',')[1]) for item in answer.data.split('|')))
+        else:
+            field = forms.CharField(max_length=1, widget=forms.TextInput(attrs={'size':'1'}))
+        add_field_attrs(field, answer)
+        attrs['field%s' % answer.sequence or answer.pk] = field
+    attrs['is_correct'] = _correct
+    return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
+    
+
 def build_answer_form(card):
-    factoryname = '%s_factory' % card.factory or 'simple'
-    
+    factoryname = '%s_factory' % (card.factory or 'form%s' % card.key)
+    print factoryname
     try:
         form_factory = eval(factoryname)
     except NameError:

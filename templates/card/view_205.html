@@ -1,0 +1,16 @@
+{% extends "card/view.html" %}
+{% block solveform %}
+{% if form.errors %}
+  <p class="error">Please fill in all the fields</p>
+{% endif %}
+<table>
+	<tr><td>{{ form.field1.label_tag }}</td><td>{{ form.field1 }}</td></tr>
+	<tr><td>{{ form.field2.label_tag }}</td><td>{{ form.field2 }}</td></tr>
+	<tr><td>{{ form.field3.label_tag }}</td><td>{{ form.field3 }}</td></tr>
+	<tr><td colspan="2">The best long-term strategy is to mix these pure strategies in this ratio:</td></tr>
+	<tr><td>{{ form.field4.label_tag }}:{{ form.field4 }} {{ form.field5.label_tag }}:{{ form.field5 }} {{ form.field6.label_tag }}:{{ form.field6 }}</td></tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td colspan="5" align="right"><input type="submit" /></td></tr>
+</table>
+{% endblock solveform %}
+

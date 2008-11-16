@@ -1,0 +1,14 @@
+{% extends "card/view.html" %}
+{% block solveform %}
+{% if form.errors %}
+  <p class="error">Please fill in all the fields</p>
+{% endif %}
+<table>
+	<tr><td>{{ form.field1 }}</td><td>{{ form.field2 }}</td><td>{{ form.field3 }}</td></tr>
+	<tr><td>{{ form.field4 }}</td><td>{{ form.field5 }}</td><td>{{ form.field6 }}</td></tr>
+	<tr><td>{{ form.field7 }}</td><td>{{ form.field8 }}</td><td>{{ form.field9 }}</td></tr>
+	<tr><td></td><td>{{ form.field10 }}</td></tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td colspan="5" align="right"><input type="submit" /></td></tr>
+</table>
+{% endblock solveform %}

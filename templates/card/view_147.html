@@ -1,0 +1,20 @@
+{% extends "card/view.html" %}
+{% block solveform %}
+{% if form.errors %}
+  <p class="error">Please fill in all the fields</p>
+{% endif %}
+<table>
+	<tr><td>1 {{ form.field1 }} in the {{ form.field2 }}</td></tr>
+	<tr><td>2 {{ form.field3 }}, a {{ form.field4 }} and a {{ form.field5 }} {{ form.field6 }}</td></tr>
+	<tr><td>3's {{ form.field7 }}</td></tr>
+	<tr><td>{{ form.field8 }} 4</td></tr>
+	<tr><td>{{ form.field9 }} of 5</td></tr>
+	<tr><td>6 {{ form.field10 }} {{ form.field11 }}</td></tr>
+	<tr><td>{{ form.field12 }}'s 7</td></tr>
+	<tr><td>8 {{ form.field13 }} {{ form.field14 }} {{ form.field15 }} {{ form.field16 }} {{ form.field17 }} {{ form.field18 }} {{ form.field19 }}</td></tr>
+	<tr><td>{{ form.field20 }} the 9 O'{{ form.field21 }} {{ form.field22 }}</td></tr>
+	<tr><td>{{ form.field23 }} the 10 of {{ form.field24 }}</td></tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td colspan="5" align="left"><input type="submit" /></td></tr>
+</table>
+{% endblock solveform %}
