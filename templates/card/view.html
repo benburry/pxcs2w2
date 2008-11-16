@@ -5,11 +5,13 @@
 <p>{{ correct }}</p>
 {% if form %}
 <form method="post" action="">
+{% block solveform %}
 <table>
 {{ form.as_table }}
 <tr><td></td></tr>
 <tr><td colspan="2" align="right"><input type="submit" /></td></tr>
 </table>
+{% endblock solveform %}
 </form>
 {% endif %}
 {% else %}

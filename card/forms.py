@@ -44,7 +44,7 @@ def cardform_factory(card, fieldobj):
     for answer in card.answer_set.order_by('sequence', 'prompt'):
         field = copy.copy(fieldobj)
         add_field_attrs(field, answer)
-        attrs['field%s' % answer.pk] = field
+        attrs['field%s' % answer.sequence or answer.pk] = field
     attrs['is_correct'] = _correct
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
 
@@ -66,7 +66,7 @@ def multiselection_factory(card):
         else:
             field = forms.CharField(max_length=128)
         add_field_attrs(field, answer)
-        attrs['field%s' % answer.pk] = field
+        attrs['field%s' % answer.sequence or answer.pk] = field
     attrs['is_correct'] = _correct
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
     
@@ -77,7 +77,7 @@ def simplepositional_factory(card):
         field = forms.CharField(max_length=128)
         add_field_attrs(field, answer)
         field.answer = answer.data
-        attrs['field%s' % answer.pk] = field
+        attrs['field%s' % answer.sequence or answer.pk] = field
     attrs['is_correct'] = _positional_correct
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
 
