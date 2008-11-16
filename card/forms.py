@@ -44,7 +44,7 @@ def cardform_factory(card, fieldobj):
     for answer in card.answers:
         field = copy.copy(fieldobj)
         add_field_attrs(field, answer)
-        attrs['field%s' % answer.sequence or answer.pk] = field
+        attrs['field%s' % (answer.sequence or answer.pk)] = field
     attrs['is_correct'] = _correct
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
 
@@ -66,7 +66,7 @@ def multiselection_factory(card):
         else:
             field = forms.CharField(max_length=128)
         add_field_attrs(field, answer)
-        attrs['field%s' % answer.sequence or answer.pk] = field
+        attrs['field%s' % (answer.sequence or answer.pk)] = field
     attrs['is_correct'] = _correct
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
     
@@ -77,7 +77,7 @@ def simplepositional_factory(card):
         field = forms.CharField(max_length=128)
         add_field_attrs(field, answer)
         field.answer = answer.data
-        attrs['field%s' % answer.sequence or answer.pk] = field
+        attrs['field%s' % (answer.sequence or answer.pk)] = field
     attrs['is_correct'] = _positional_correct
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
 
@@ -91,7 +91,7 @@ def form147_factory(card):
     for answer in card.answers:
         field = forms.CharField(max_length=128, initial=answer.value[1].upper())
         add_field_attrs(field, answer)
-        attrs['field%s' % answer.sequence or answer.pk] = field
+        attrs['field%s' % answer.sequence] = field
     attrs['is_correct'] = _correct
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
 
@@ -104,7 +104,7 @@ def form205_factory(card):
         else:
             field = forms.CharField(max_length=1, widget=forms.TextInput(attrs={'size':'1'}))
         add_field_attrs(field, answer)
-        attrs['field%s' % answer.sequence or answer.pk] = field
+        attrs['field%s' % answer.sequence] = field
     attrs['is_correct'] = _correct
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
     
