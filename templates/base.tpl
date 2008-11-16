@@ -39,11 +39,13 @@
 		<div id="navbar"> 
 			<h3 class="hide">Main navigation:</h3> 
 			<ul id="nav"> 
-				<li><a accesskey="s" title="Solve" href="/">Solve</a></li> 
+				{% block nav %}
+				<li{% ifequal currpage "solve"%} class="active"{% endifequal %}><a accesskey="s" title="Solve" href="/">Solve</a></li> 
 				{% if user.is_authenticated %}
-				<li><a accesskey="s" title="Profile" href="{% url solved_view user.username %}">Profile</a></li> 				
+				<li{% ifequal currpage "profile"%} class="active"{% endifequal %}><a accesskey="p" title="Profile" href="{% url solved_view user.username %}">Profile</a></li> 				
 				<li><a accesskey="l" title="Sign out"  href="{% url logout %}">Sign out</a></li> 
 				{% endif %}
+				{% endblock nav %}
 			</ul> 
 		</div><!-- end wrapper -->	
 		</div> 

@@ -1,4 +1,9 @@
 {% extends "base.tpl" %}
+{% block nav %}
+{% with "solve" as currpage %}
+  {{ block.super }}
+{% endwith %}
+{% endblock nav %}
 {% block body %}
 				<div class="p-box"> 
 					<h1>Perplex City S2W2 Card Solver</h1> 

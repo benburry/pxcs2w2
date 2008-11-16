@@ -1,4 +1,9 @@
 {% extends "base.tpl" %}
+{% block nav %}
+{% with "solve" as currpage %}
+  {{ block.super }}
+{% endwith %}
+{% endblock nav %}
 {% block body %}
 			
 				<div class="p-box"> 
