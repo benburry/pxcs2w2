@@ -46,11 +46,7 @@ def view_card(request, card_id):
             c['form'] = form
         
             if form.is_valid():       
-                correct = len(form.fields) > 0
-                for match in (re.match(f.field.answer, f.data.strip(), re.I) for f in form):
-                    correct = correct and match is not None
-                    if not correct:
-                        break
+                correct = form.is_correct()
     
                 c['correct'] = correct
                 if correct:

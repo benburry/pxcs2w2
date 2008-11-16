@@ -1,4 +1,4 @@
-import copy
+import copy, re
 from django.utils.datastructures import SortedDict
 from django import forms
 
@@ -6,6 +6,17 @@ class AnswerForm(forms.Form):
     pass
 
 
+def _correct(self):
+    if len(self.fields) == 0:
+        return False
+        
+    for match in (re.match(f.field.answer, f.data.strip(), re.I) for f in self):
+        if match is None:
+            return False
+            
+    return True
+            
+            
 def add_field_attrs(field, answer):
     field.label = answer.prompt or 'Answer'
     field.answer = answer.value
@@ -17,6 +28,7 @@ def cardform_factory(card, fieldobj):
         field = copy.copy(fieldobj)
         add_field_attrs(field, answer)
         attrs['field%s' % answer.pk] = field
+    attrs['is_correct'] = _correct
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
 
 
@@ -32,9 +44,13 @@ def selection_factory(card):
 def multiselection_factory(card):
     attrs = SortedDict()
     for answer in card.answer_set.order_by('pk'):
-        field = forms.ChoiceField(choices=((item.split(',')[0], item.split(',')[1]) for item in answer.data.split('|')))
+        if answer.data:
+            field = forms.ChoiceField(choices=((item.split(',')[0], item.split(',')[1]) for item in answer.data.split('|')))
+        else:
+            field = forms.CharField(max_length=128)
         add_field_attrs(field, answer)
         attrs['field%s' % answer.pk] = field
+    attrs['is_correct'] = _correct
     return type('AnswerForm%s' % card.key, (AnswerForm,), attrs)
 
     
