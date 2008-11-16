@@ -1,0 +1,1345 @@
+/*-----------------------------------------------------------------------------
+Perplex City Beta
+
+version:   0.5
+author:    marty batten / mind candy design
+email:     marty@mindcandydesign.com
+-----------------------------------------------------------------------------*/
+
+/* =General
+-----------------------------------------------------------------------------*/
+
+* {
+ 	margin: 0;
+	padding: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+.hide {
+	display: none;	
+}
+
+img {
+	border: 0;
+}
+
+hr {
+  	border: 0;
+  	width: 100%;
+  	color: #d3dadc;
+	background-color: #d3dadc;
+	height: 1px;
+	margin-bottom: 5px;
+}
+
+.pic-left {
+	float: left;
+	padding-right: 10px;
+}
+
+.pic-right {
+	float: right;
+}
+
+body {	
+	font-size: small;
+	background: #937a96 url(images/00-bground.jpg) top left repeat-x;
+	text-align: center;
+	/* margin: 0px 0 0 0; */
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #444;
+}
+
+* html body {
+	font-size: x-small; /* for ie5/win */
+	f\ont-size: small; /* for other ie versions */
+}
+
+/* =Typography
+-----------------------------------------------------------------------------*/
+
+p {	
+	margin-bottom: 1.2em;
+}
+
+/* =Headings
+-----------------------------------------------------------------------------*/
+
+/* Top <h1> */
+
+.header { 
+	text-indent: -9999px; 
+	background: url(images/pxc.png) no-repeat;
+	width: 362px;
+	height: 135px;
+	margin-left: 300px;
+	position: absolute;
+}
+
+* html body .header { 
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://beta.perplexcity.comimages/pxc.png", sizingMethod='scale'); 
+	background-image: none;
+}
+
+.header span { 
+	display: block; 
+	z-index: 1;
+}
+
+#linked a {
+	display: block;
+	border-bottom: 0px;
+	cursor: pointer;
+	width: 362px;
+	height: 135px;
+}
+
+/* End Top <h1> */
+
+#header div#beta {
+	width: 89px;
+	height: 85px;	
+	background: url(images/beta-badge.png) no-repeat;
+	position: absolute;
+	top: 0px;
+	margin-left: 240px;
+	z-index: 2;
+}
+
+* html body #header div#beta { 
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://beta.perplexcity.comimages/beta-badge.png", sizingMethod='scale'); 
+	background-image: none;
+}
+
+h1.main-heading {
+	width: 791px;
+	height: 50px;
+	background-image: url(images/main-heading.gif);
+	text-indent: -9999px;
+}
+
+#inside h1 {
+	background: #d2d9db;
+	color: #878787;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 160%;
+	font-weight: normal;
+	margin-bottom: 0.8em;
+	padding: 5px;
+}
+
+#tools-content h2 {
+	font-size: 110%;
+	margin-bottom: 1.0em;
+}
+
+#inside h2 {
+	margin-bottom: 1.2em;
+	font-size: 100%;
+	background: #ebebeb;
+	padding: 5px;
+}
+
+#inside h2.create {
+	width: 402px;
+	height: 29px;
+	background: url(images/heading-create.gif) no-repeat;
+	text-indent: -9999px;
+}
+
+#inside h3 {
+	margin-bottom: 1.0em;
+	font-size: 100%;
+	color: #8d7590;
+}
+
+h4 {
+	font-size: 100%;
+	margin-bottom: 1em;	
+}
+
+/* =Links
+-----------------------------------------------------------------------------*/
+
+a {
+	outline: none;
+}
+
+a:link, a:visited {
+	color: #856e88;
+	border-bottom: 1px solid #c4bcc4;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #856e88;
+	border-bottom: 1px solid #856e88;
+}
+
+/* =Nav
+-----------------------------------------------------------------------------*/
+
+#navbar {
+	width: 792px;
+	position: absolute;
+	top: 170px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#nav li {
+	list-style: none;
+	display: inline;
+	margin: 0 6px 0 0;
+	padding: 0 0 0 0;
+}
+
+#nav a {
+	padding: 8px 10px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 100%;
+	color: #937a96;
+	border-bottom: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* hover state */
+
+#nav a:hover { /* a backup for IE's lack of li:hover support */
+	color: #fff;
+	background-color: #937a96;
+}
+
+html>body #nav a:hover {
+	color: #fff;
+	background: #937a96 url(images/nhov-bottom.gif) no-repeat bottom right;
+}
+
+/* active state */
+
+#nav li.active a {
+	color: #fff;
+	background: #937a96 url(images/nhov-bottom.gif) no-repeat bottom right;
+}
+
+/* =Main Content
+-----------------------------------------------------------------------------*/
+
+#header {
+	width: 915px;
+	height: 216px;
+	background: url(images/header-bg.jpg) no-repeat;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#header-content {
+	text-align: left;	
+}
+
+#wrapper {
+	width: 792px;
+	text-align: left;
+	margin: 0 auto;
+}
+
+#main { /* puzzle page */
+	width: 792px;
+	height: 557px;
+	background-image: url(images/main-bground.jpg);
+}
+
+/* --------------- Final & Saved Puzzle pages */
+
+#main-black {
+	width: 792px;
+	height: 557px;
+	background-image: url(images/main-bground-black.jpg);
+}
+
+#main-blue {
+	width: 792px;
+	height: 557px;
+	background-image: url(images/main-bground-blue.jpg);
+}
+
+#main-green {
+	width: 792px;
+	height: 557px;
+	background-image: url(images/main-bground-green.jpg);
+}
+
+#main-orange {
+	width: 792px;
+	height: 557px;
+	background-image: url(images/main-bground-orange.jpg);
+}
+
+#main-purple {
+	width: 792px;
+	height: 557px;
+	background-image: url(images/main-bground-purple.jpg);
+}
+
+#main-red {
+	width: 792px;
+	height: 557px;
+	background-image: url(images/main-bground-red.jpg);
+}
+
+#main-teal {
+	width: 792px;
+	height: 557px;
+	background-image: url(images/main-bground-teal.jpg);
+}
+
+#main-yellow {
+	width: 792px;
+	height: 557px;
+	background-image: url(images/main-bground-yellow.jpg);
+}
+
+#main-silver {
+	width: 792px;
+	height: 557px;
+	background-image: url(images/main-bground-silver.jpg);
+}
+
+
+#puzzle-final {
+	padding: 25px 30px 0px 30px;
+	font-size: 85%;
+}
+
+#saved-puzzles {
+	top: 20px;
+	width: 746px;
+	height: 500px;
+	padding: 25px 30px 0px 30px;
+	/* margin: 25px 0 0 23px; */
+	font-size: 85%;
+}
+
+.cs {
+	margin-bottom: 10px;
+	min-height: 70px;
+	background-color: #E9F1F7;
+	width: 100%;
+	text-align: left;
+	display: block;
+	clear: both;
+}
+
+.cs .difficulty {
+	margin: 3px 3px 0px 0px;
+}
+
+.cs .puzzle-thumb {
+	float: left;
+	margin-right:10px;
+	display: block;
+}
+
+.cs .category {
+	float: right;
+}
+
+.cs p {
+	padding-right: 5px;
+	padding-top: 5px;
+	display: block;
+	margin: 0px;
+}
+
+#puzzle-final h1 {
+	border-bottom: 1px solid #d8d7d7;
+	margin-bottom: 5px;
+	font-size: 200%;
+	font-weight: normal;
+}
+
+#saved-puzzles  h1 {
+	border-bottom: 1px solid #d8d7d7;
+	margin-bottom: 15px;
+	font-size: 200%;
+	font-weight: normal;
+}
+
+#puzzle-final h3 {
+	margin-bottom: 15px;
+	color: #4d3b4f;
+	font-size: 120%;
+	font-weight: normal;
+}
+
+#puzzle-final span {
+	display: block;
+}
+
+#puzzle-final-copy {
+	width: 300px;
+	float: left;
+}
+
+#puzzle-final-copy div {
+	margin-bottom: 10px;
+	border-bottom: 1px solid #dbdbdb;
+}
+
+#puzzle-final-image {
+	width: 402px;
+	height: 402px;
+	float: right;
+	border: 1px solid #dbdbdb;
+}
+
+.coloured {
+	color: #4d3b4f;
+}
+
+.answer-type {
+	border-width: 1px !important;
+	border-color: #9a9a9a !important;
+	border-style: solid !important; 
+	width: 296px;
+	padding: 4px;
+	background-color: #f0f0f0;
+}
+
+/* --------------- End FINAL SAVED puzzle */
+
+#inside { /* normal pages */
+	width: 792px;
+	background: url(images/main-tile.jpg) repeat-y;
+}
+
+#inside-content {
+	width: 752px;
+	min-height: 246px;
+	height: auto !important;
+  	height: 246px;
+	background: url(images/main-top.jpg) no-repeat;
+	padding: 18px 20px 0 20px;
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+}
+
+/* <p> Rounded corners */
+
+#inside-content .p-box {
+	background: #fff url(images/p-box-top.gif) top left no-repeat;
+	padding: 10px;
+}
+
+#inside-content p.last {
+	margin-bottom: 2px;
+}
+
+#inside-content .p-box-bottom {
+	background: #fff url(images/p-box-bottom.gif) bottom left no-repeat;
+	height: 47px;
+	margin-bottom: 0.9em;
+}
+
+#inside-content .p-last {
+	margin-bottom: 0;
+}
+
+/* End <p> rounded corners */
+
+#main-bottom {
+	width: 792px;
+	height: 33px;
+	background: url(images/main-bottom.jpg) top left no-repeat;
+}
+
+#create-box {
+	width: 533px;
+	height: 507px;
+	background-image: url(images/create-box-bground.png);
+	position: absolute;
+	z-index: 3;
+	margin: 20px 0 0 20px;
+}
+
+* html body #create-box   { 
+	background-image: url(images/create-box-bground.gif);
+}
+
+#create-main {
+	width: 480px;
+	height: 450px;
+	padding: 23px 15px 20px 23px;
+}
+
+#tools-box {
+	width: 240px;
+	height: 443px;
+	position: absolute;
+	margin: 53px 0 0 520px;
+	background: url(images/sidebar-bground.gif) no-repeat;
+	font-size: 85%;
+}
+
+#tools-content {
+	width: 200px;
+	height: 420px;
+	margin: 10px 0 0 25px;
+	padding-top: 5px;
+	overflow: auto;
+}
+
+/* =Slide Box - Extra Styles - Not currently used on live site
+-----------------------------------------------------------------------------*/
+
+#tools-box2 {
+	width: 240px;
+	height: 443px;
+	position: absolute;
+	margin: 53px 0 0 520px;
+	font-size: 85%;
+}
+
+#under-slider {
+	width: 200px;
+	margin-left: 30px;
+}
+
+/* =Login
+-----------------------------------------------------------------------------*/
+
+#login {
+	width: 183px;
+	height: 73px;
+	position: absolute;
+	top: 38px;
+	margin-left: 610px;
+	background: url(images/login-bground.png) no-repeat;
+	font-size: 85%;
+	color: #fff;
+}
+
+* html body #login   { 
+	/* background: url(images/login-bground.gif) no-repeat; */
+	background-image: none;
+}
+
+.login-content {
+	padding: 6px;
+}
+
+#login p {
+	margin: 0;
+	padding: 0;
+}
+
+#login p.register {
+	float: left;
+	font-size: 90%;
+	margin: 14px 0 0 10px;
+}
+
+#login p.register a {
+	color: #d3dadc;
+	border-bottom: 0px;
+	text-decoration: underline;
+}
+
+#login p.register a:hover {
+	color: #fff;
+	border-bottom: 0px;
+	text-decoration: none;
+}
+
+#login p.signout {
+	float: left;
+	margin-top: 5px;
+}
+
+.login-content span {
+	color: #d3dadc;
+}
+
+#login p.signout a {
+	color: #d3dadc;
+	border-bottom: 0px;
+	text-decoration: underline;
+}
+
+#login p.signout a:hover {
+	color: #fff;
+	border-bottom: 0px;
+	text-decoration: none;
+}
+
+#btnlogin {
+	float: left;
+	margin: 4px 0 0 -4px;
+}
+
+#login label {
+	display: block;
+	margin-bottom: 3px;
+	font-size: 95%;
+	color: #fff;
+}	
+
+#username, #password {
+	width: 70px;
+	height: 10px;
+	color: #4e3d50;
+	font-size: 95%;
+	border: 0px;
+}
+
+#username {
+	margin-right: 5px;
+}
+
+.form-labels label {
+	display: block;
+	font-size: 100%;	
+}
+
+/* =Footer
+-----------------------------------------------------------------------------*/
+
+#footer {
+	width: 792px;
+	margin: 0 auto;
+	color: #b8a7ba;
+}
+
+#footer a:link, #footer a:visited {
+	color: #b8a7ba;
+	text-decoration: none;
+	border-bottom: 0px;
+}
+
+#footer a:hover {
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 0px;
+	background: #b8a7ba;
+}
+
+/* =Forms & Form Wrappers
+-----------------------------------------------------------------------------*/
+
+file {
+	padding: 0px;
+	margin: 0px;	
+}
+
+#feedback-main .feedback-main-msge {
+	width: 400px;
+}
+
+/* Form buttons */
+
+#submitBtn, #previewBtn, #saveBtn {
+	margin-top: 8px;
+	background-color: #ece9d8;
+	border: 1px solid #999;
+	cursor: pointer;
+}
+
+/* Tell your friends link */
+
+p.spacer {
+	margin-top: 20px;
+	position: relative;
+}
+
+a.tell-friends {
+	background: #ece9d8 url(images/mailicon.gif) no-repeat;
+	padding: 5px 5px 5px 25px;
+	font-size: 85%;
+	color: #666;
+	border-bottom: 0px;
+}
+
+a.tell-friends:hover {
+	background: #ece9d8 url(images/mailicon.gif) no-repeat;
+	color: #333;
+	border-bottom: 0px;
+	text-decoration: none;
+}
+
+/* Form backgrounds */
+	
+#question-box {
+	background: url(images/form-question-bg.gif) top left no-repeat;
+	width: 480px;
+	height: 58px;
+	padding: 5px;
+	margin: 23px 0 0 23px;
+}
+
+.puzzle-form-outer {
+	background: url(images/form-question-bg.gif) top left no-repeat;
+	width: 480px;
+	height: 58px;
+	padding: 5px;
+	margin: 0;
+}
+
+.puzzle-form-outer select {
+	width: 465px;
+	border: 0px;
+	padding: 3px;
+	font-size: 85%;
+	color: #999;
+	background: #fff;
+}
+
+.puzzle-form-outer-license {
+	width: 480px;
+	padding: 5px;
+	margin: 0;
+}
+
+#license label {
+	margin: 0;
+	padding: 0;
+	display: inline !important;
+}
+
+
+/* Upload image & image browser */
+
+a#upload-btn {
+	width: 149px;
+	height: 112px;
+	background: url(images/upload.gif) bottom left no-repeat;
+	margin: 50px 0 0 180px !important;
+	text-indent: -9999px;
+	border-bottom: 0px; 
+	position: absolute;
+	z-index: 12;
+}
+
+a:hover#upload-btn {
+	background: url(images/upload.gif) top left no-repeat;
+	border-bottom: 0px;
+}
+
+/* -------- */
+
+#browser {
+	width: 272px;
+	height: 160px;
+	position: absolute;
+	margin: 0px 0 0 280px;
+	background: url(images/bubble.png) top left no-repeat;
+	font-size: 85%;
+	z-index: 20;
+}
+
+* html body #browser   { 
+	background: url(images/bubble.gif) top left no-repeat;
+}
+
+#browser div {
+	width: 170px;
+	height: 160px;
+	margin: 25px 0 0 0;
+	padding-left: 50px;
+}
+
+#browser span {
+	display: block;
+}
+
+#browser label {
+	display: none;
+}
+
+/* Answers */
+
+#answers-box {
+	position: absolute;
+	width: 502px;
+	height: 164px;
+	background: url(images/answers-bground.gif) top left no-repeat;
+	margin: 237px 0 0 12px;
+}
+
+#answers-box label {
+	display: none;
+}
+
+#answers-box p {
+	text-align: center;
+}
+
+/* Validation DIVs */
+
+/* Style for ALL bubbles */
+
+.valid-bubble {
+	width: 169px;
+	height: 64px;
+	background: url(images/validation-bubble.png) top left no-repeat;
+}
+
+* html body .valid-bubble   { 
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/validation-bubble.png", sizingMethod='scale'); 
+	background-image: none;
+}
+
+.valid-bubble p {
+	font-size: 85%;
+	margin: 17px 0 0 15px;
+}
+
+.valid-bubble-answer {
+	width: 169px;
+	height: 64px;
+}
+
+.valid-bubble-answer p {
+	font-size: 85%;
+	color: #89708a;
+}
+
+/* Style for each individual bubble */
+
+#valid-question {
+	position: absolute;
+	margin-left: 350px;
+	top: 0px;
+}
+
+#valid-answera {
+	position: absolute;
+	margin-left: 100px;
+	top: 300px;	
+}
+
+#valid-answerb {
+	position: absolute;
+	margin-left: 350px;
+	top: 300px;	
+}
+
+#valid-answerc {
+	position: absolute;
+	margin-left: 100px;
+	top: 365px;	
+}
+
+#valid-answerd {
+	position: absolute;
+	margin-left: 350px;
+	top: 365px;	
+}
+
+#valid-answer {
+	position: absolute;
+	margin-left: 525px;
+	top: 365px;	
+}
+
+#valid-name {
+	position: absolute;
+	margin-left: 350px;
+	top: 0px;	
+}
+
+#valid-difficulty {
+	position: absolute;
+	margin-left: 350px;
+	top: 70px;	
+}
+
+#valid-category {
+	position: absolute;
+	margin-left: 350px;
+	top: 140px;	
+}
+
+#valid-license {
+	position: absolute;
+	margin-left: 350px;
+	top: 205px;	
+}
+
+/* =Tables
+-----------------------------------------------------------------------------*/
+
+table { 
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+td {
+	text-align: left;
+	font-weight: normal;
+}
+
+/* =Lists
+-----------------------------------------------------------------------------*/
+
+ul {
+	list-style: circle;
+    margin-bottom: 1.3em;
+}
+
+ul li {
+	margin-left: 20px;
+}
+
+ol {
+	margin-bottom: 1.3em;	
+}
+
+ol li {
+	margin: 0 0 5px 30px;
+}
+
+#new-to-site {
+	padding-left: 30px;
+}
+
+#new-to-site li {
+	list-style: none;
+}
+
+/* =Homepage stuff
+-----------------------------------------------------------------------------*/
+
+.homepage-box {
+	width: 360px; /* 364px with testing borders */
+	float: left;
+	background: #735d76 url(images/homepage-box-bottom.gif) bottom left no-repeat;
+}
+
+.homepage-box h3 {
+	color: #fff;
+	padding: 6px 8px 4px 10px;
+	background: #735d76 url(images/homepage-box-top.gif) top left no-repeat;
+}
+
+.homepage-box p {
+	color: #fff;
+	padding: 0px 10px 0px 10px;
+	margin-bottom: 1.0em;
+}
+
+#box01 {
+
+}
+
+#box02 {
+	float: right;
+}
+
+.box {
+	float: left; 
+	width: 173px; 
+	padding-right: 13px;
+}
+
+.box-last {
+	float: left; 
+	width: 173px; 
+}
+
+.box img, .box-last img {
+	padding-bottom: 13px;
+}
+
+.box a, .box-last a, .box a:hover, .box-last a:hover {
+	border-bottom: 0px;
+}
+
+.box strong, .box-last strong {
+	display: block;
+}
+
+/* =Feedback form & Send to friend
+-----------------------------------------------------------------------------*/
+
+#sendfeedback-div {
+	position: absolute;
+	top: 150px;
+	margin-left: 420px;
+	background: url(images/feedback-bubble.png) top left no-repeat;
+	height: 313px;
+	width: 232px;
+}
+
+* html body #sendfeedback-div   { 
+	background: url(images/feedback-bubble.gif) top left no-repeat;
+}
+
+#email-div {
+	position: absolute;
+	top: 150px;
+	margin-left: 180px;
+	background: url(images/feedback-bubble.png) top left no-repeat;
+	height: 313px;
+	width: 232px;
+}
+	
+* html body #email-div   { 
+	background: url(images/feedback-bubble.gif) top left no-repeat;
+}
+
+/* -------------------------------------- */
+
+#friendbtn {
+	width: 200px !important;
+}
+
+#email-form, #email-form-sent, #feedback-form, #feedback-form-sent {
+	width: 200px;
+	margin: 15px 0 0 15px;
+}
+
+#email-form .email-mesge, #feedback-form .email-mesge {
+	width: 195px;
+	margin: 0;
+	border: 1px solid #999;
+	color: #333;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
+	font-size: x-small !important;
+}
+
+#email-form .email-btn, #feedback-form .email-btn {
+	margin-top: 5px;
+	background-color: #ece9d8;
+	border: 1px solid #999;
+	color: #999;
+	cursor: pointer;
+	padding: 0;
+	
+	font-size: x-small !important;
+}
+
+#email-form p, #feedback-form p {
+	margin: 0 0 5px 0;
+	padding: 0;
+}
+
+#email-form label, #feedback-form label {
+	color: #9a9a9a;	
+}
+
+#email-form .closepopup, #feedback-form .closepopup {
+	padding-top: 10px;
+}
+
+/* =New Saved Puzzle Page - Created 01/12/06
+-----------------------------------------------------------------------------*/
+
+#puzzle-float {
+	position: relative;
+	width: 744px;
+	height: 452px;
+	background: url(images/puzzle-float.jpg) no-repeat;
+	margin-left: 23px;
+	top: 7px;
+	font-size: 85%;
+}
+
+#puzzle-float a {
+	cursor: pointer;
+	border-bottom: 0px;
+}
+
+#puzzle-float-container h1 {
+	float: left;
+	color: #49394b;
+	font-weight: normal;
+	margin: 22px 0 0 0px;
+	font-size: 150%;
+	padding-left: 25px;
+}
+
+* html #puzzle-float-container h1 {
+	margin: 22px 0 0 0px;
+}
+
+p.diff-cat {
+	float: right;
+	color: #49394b;
+	font-size: 85%;
+	margin: 28px 0px 0 0;
+	padding-right: 30px;
+}
+
+p.diff-cat strong {
+	background: url(images/arrow.gif) no-repeat;
+	padding-left: 15px;
+}
+
+.puzzle-float-footer {
+	width: 792px;
+	text-align: center;
+	position: absolute;
+	top: 775px;
+	color: #413343;
+}
+
+.puzzle-float-footer a {
+	color: #413343;
+	text-decoration: underline;
+	border-bottom: 0px;
+	font-size: 85%;
+}
+
+.puzzle-float-footer a:hover {
+	color: #413343;
+	text-decoration: none;
+}
+
+.puzzle-float-footer ul {
+	list-style: none;
+}
+
+.puzzle-float-footer li {
+	display: inline;
+	padding: 0;
+	margin: 0;
+}
+
+.puzzle-float-footer a.send-bg {
+	background: url(images/friend.gif) no-repeat;
+	padding-left: 16px;
+	border-bottom: 0px;
+}
+
+.puzzle-float-footer a.feedback-bg {
+	background: url(images/email.gif) no-repeat;
+	padding-left: 20px;
+	border-bottom: 0px;
+}
+
+.puzzle-float-img {
+	position: absolute;
+	margin: 85px 34px 0 380px;
+}
+
+.question-p {
+	width: 710px;
+	margin: 0px 0 10px 15px;
+	padding-top: 15px;
+}
+
+.answer-thing {
+	width: 321px;
+	margin-left: 15px;
+	margin-top: 100px;
+	height: 30px;
+	line-height: 28px;
+	padding-left: 4px;
+}
+
+#correct {
+	background: #bde4ab url(images/correct.gif) left no-repeat;
+	color: #2e8b04;
+	border: 3px solid #2e8b04;
+	padding-left: 25px;
+}
+
+#incorrect {
+	background: #f8a0a0 url(images/incorrect.gif) left no-repeat;
+	color: #ac1010;
+	border: 3px solid #ac1010;
+	padding-left: 25px;
+}
+
+/* for ie */
+
+* html .answer-thing {
+	width: 321px;
+	margin-left: 15px;
+	margin-top: 100px;
+	padding-left: 4px;
+	height: 20px;
+	line-height: 0px;
+}
+
+* html .answer-thing p {
+	margin-top: 13px;
+}
+
+.answers-wrapper {
+	margin-left: 15px;
+	margin-top: 50px;
+}
+
+.answer-div {
+	width: 350px;
+	display: block;
+	background: url(images/main-final-answer.gif) repeat-x;
+	border-bottom-color: #7f7081;
+	border-left-color: #7f7081;
+	border-right-color: #aca1ae;
+	border-top-color: #aca1ae;
+	border-style: solid;
+	border-width: 1px;
+	/* height: 30px; */
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+
+.answer-div p {
+	margin: 4px 4px 7px;
+	color: #fff;
+}
+
+/* Retrospective */
+
+div#retroimagebox {
+	width: 100%;
+	text-align: center;
+}
+
+img.artimage {
+	margin: 0 auto;
+	width: 400px;
+	margin-bottom: 10px;
+	border: 0;
+}
+
+a.buttons {
+	padding: 8px 10px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 100%;
+	color: #fff;
+	border-bottom: none;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #937a96;
+}
+
+a.buttons:hover { 
+	background-color: #fff;
+	color: #937a96;
+}
+
+div#retrolabel {
+	text-align: center;
+}
+
+a {
+	outline: none;
+}
+
+div.hiddenstory {
+    display: none;
+    border: 1px solid #d8d7d7;
+    padding: 5px;
+    margin-bottom: 10px;
+}   
+
+div.hiddenstory img {
+    width: 670px;
+}
+
+a#retrolink:link, a#retrolink:visited, div.hiddenstory a:link, div.hiddenstory a:visited {
+    border: 0;
+}
+
+a#retrolink:hover, div.hiddenstory a:hover {
+    border: 0;
+}
+
+
+/* S2W2 Solver
+-----------------------------------------------------------------------------*/
+
+.card-rows {
+	float: left;
+	clear: both;
+}
+
+.card-box {
+	float: left;
+	width: 160px;
+	padding: 6px;
+	margin: 5px;
+	
+	height: 60px;
+		
+	background-color: #ededed;
+	overflow: hidden;
+}
+
+.long-card-box {
+	width: 710px;
+	float: none;
+	
+	margin-bottom: 15px;
+}
+
+.card-box p {
+	color: #777;
+}
+
+.card-box p.number {
+	font-weight: bold;
+	font-size: 1.1em;
+
+	padding: 0;
+	margin: 0;
+}
+
+.card-box .red { color: #cc0000; }
+.card-box .orange { color: #ff6600; }
+.card-box .yellow { color: #ddcc00; }
+.card-box .green { color: #006400; }
+.card-box .blue { color: #009acd; }
+.card-box .purple { color: #5C246E; }
+.card-box .black { color: #000000; }
+.card-box .silver { color: #808080; }
+
+.card-box p.title{
+	padding: 0;
+	margin: 0;
+}
+
+.card-image {
+	float: left;
+	margin-right: 5px;	
+	
+	width: 40px;
+	height: 55px;
+}
+
+.form-center {
+	text-align: center;	
+
+}
+
+.form-center p {
+	margin: 0;2
+}
+
+
+.form-center input {
+	background-color: #eee;
+	border: 1px solid #333 !important;
+	font-size: 13px !important;
+	line-height: 1em !important;
+	
+	padding: 4px !important;
+	margin-bottom: 3px !important;
+}
+
+.form-center label {
+	display: inline;	
+}
+
+.work { color: #cc0000}
+
+
