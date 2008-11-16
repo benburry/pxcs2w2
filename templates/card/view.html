@@ -1,5 +1,6 @@
 <p>{{ card }}</p>
 <p><img src="/images/card/{{ card.key }}.png" /></p>
+{% if not solved %}
 <p>{{ card.question|safe }}</p>
 <p>{{ correct }}</p>
 {% if form %}
@@ -11,3 +12,6 @@
 </table>
 </form>
 {% endif %}
+{% else %}
+<p>You have already solved this card</p>
+{%endif%}

@@ -33,37 +33,46 @@ def card_list(request):
 @login_required
 def view_card(request, card_id):
     card = get_object_or_404(Card, number=int(card_id))
+    try:
+        cardsolve = card.cardsolve_set.get(user = request.user)
+    except CardSolve.DoesNotExist:
+        cardsolve = None
     
-    attempt = get_attempt(request, card)
-    if attempt.cansolve:
-        formtype = build_answer_form(card)
-    
-        c = Context({'card': card})
-        t = loader.select_template(["card/view_%s.html" % card.key, 'card/view.html'])
+    c = Context({'card': card})
+    t = loader.select_template(["card/view_%s.html" % card.key, 'card/view.html'])
         
-        if request.method == 'POST':
-            form = formtype(request.POST)
-            c['form'] = form
+    if cardsolve is None:
+        attempt = get_attempt(request, card)
+        if attempt.cansolve:
+            formtype = build_answer_form(card)
         
-            if form.is_valid():       
-                correct = form.is_correct()
+            if request.method == 'POST':
+                form = formtype(request.POST)
+                c['form'] = form
+        
+                if form.is_valid():       
+                    correct = form.is_correct()
     
-                c['correct'] = correct
-                if correct:
-                    del c['form']
-                    try:
-                        solve = CardSolve.objects.get(user=request.user, card=card)
-                    except CardSolve.DoesNotExist:
-                        solve = CardSolve(user=request.user, card=card)
-                        solve.save()
+                    c['correct'] = correct
+                    if correct:
+                        del c['form']
+                        try:
+                            solve = CardSolve.objects.get(user=request.user, card=card)
+                        except CardSolve.DoesNotExist:
+                            solve = CardSolve(user=request.user, card=card)
+                            solve.save()
                     
-                else:
-                    attempt.incr_attempt()
+                    else:
+                        attempt.incr_attempt()
                 
-        else:
-            form = formtype()
-            c['form'] = form
-        
+            else:
+                form = formtype()
+                c['form'] = form
+       
+    else:
+        c['solved'] = True
+        return HttpResponse(t.render(c))
+    
     if attempt.cansolve:
         return HttpResponse(t.render(c))
     else:
