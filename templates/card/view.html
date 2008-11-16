@@ -40,9 +40,11 @@
 						<form method="post" action="">
 {% block solveform %}
 <table>
+{% block solvefields %}
 {{ form.as_table }}
+{% endblock solvefields %}
 <tr><td></td></tr>
-<tr><td colspan="2" align="right"><input type="submit" value="Check Answer" /></td></tr>
+<tr><td colspan="5" align="right"><input type="submit" value="Check Answer" /></td></tr>
 </table>
 {% endblock solveform %}
 						</form>
