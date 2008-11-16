@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     (r'^admin/(.*)', admin.site.root),
     (r'^accounts/login/$', login, {'template_name': 'login.html'}),
     (r'^accounts/logout/$', logout, {'next_page': '/'}),
-    (r'^accounts/register/$', register),
+    url(r'^accounts/register/$', register, name='register'),
 )
 
 if settings.DEBUG:

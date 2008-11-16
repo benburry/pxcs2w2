@@ -4,10 +4,11 @@
 
 <form action='.' method='post'>
   <label for="username">User name:</label>
-  <input type="text" name="username" value="" id="username">
+  <input type="text" name="username" value="" id="username" />
   <label for="password">Password:</label>
-  <input type="password" name="password" value="" id="password">
+  <input type="password" name="password" value="" id="password" />
 
   <input type="submit" value="login" />
   <input type="hidden" name="next" value="{{ next|escape }}" />
 </form>
+<p><a href="{% url register %}">Register</a></p>
