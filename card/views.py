@@ -63,11 +63,11 @@ def view_card(request, card_id):
             formtype = build_answer_form(card)
         
             if request.method == 'POST':
-                c['answered'] = True
                 form = formtype(request.POST)
                 c['form'] = form
         
-                if form.is_valid():       
+                if form.is_valid():   
+                    c['answered'] = True    
                     correct = form.is_correct()
     
                     c['correct'] = correct
