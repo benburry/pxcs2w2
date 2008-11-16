@@ -1,5 +1,25 @@
 {% extends "base.tpl" %}
 {% block body %}
+			
+				<div class="p-box"> 
+					<h1>Perplex City S2W2 Card Solver</h1> 
+					
+					<!--<div align="center">
+						<p>Logged in as <b>Jey</b></p>
+					</div>-->
+					
+					<div class="form-center">
+						<form method="post" action="">
+							<p><label for="username">Username:</label> <input id="username" name="username" type="text" />
+							<label for="password">Password:</label> <input class="work" id="password" name="password" type="password" /></p>
+							<p><input type="submit" value="Sign in" /></p>
+						</form>
+					</div>
+				</div> 
+				
+				<div class="p-box"> 
+					<h2 align="center">Choose a card to solve</h2>
+
 <div class="card-rows">
 {% for card in card_list %}
 {% if forloop.counter|divisibleby:"4" %}
@@ -12,4 +32,8 @@
 	<p class="title"><a href="{{card.get_absolute_url}}">{{card.name}}</a></p>
 </div>
 {% endfor %}
+
+					<div class="clear"></div> 
+				</div> 
+				<div class="p-box-bottom p-last"></div> 
 {% endblock body %}
