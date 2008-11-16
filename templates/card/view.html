@@ -19,11 +19,11 @@
 
 {% if correct %}
 					<div class="answer-correct">
-						<p>Win</p>
+						<p>Congratulations, you've solved this card!</p>
 					</div>
 {% else %}
 					<div class="answer-incorrect">
-						<p>Fail</p>
+						<p>Sorry, that answer wasn't correct.</p>
 					</div>
 {% endif %}
 					
@@ -35,7 +35,7 @@
 <table>
 {{ form.as_table }}
 <tr><td></td></tr>
-<tr><td colspan="2" align="right"><input type="submit" /></td></tr>
+<tr><td colspan="2" align="right"><input type="submit" value="Check Answer" /></td></tr>
 </table>
 {% endblock solveform %}
 						</form>
