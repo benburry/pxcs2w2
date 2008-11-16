@@ -17,6 +17,7 @@ def register(request):
             return HttpResponseRedirect(reverse('site_root'))
     else:
         form = UserCreationForm()
+        form.fields['username'].help_text = ''
 
     return render_to_response("register.html", {'form' : form}, context_instance=RequestContext(request))
 
