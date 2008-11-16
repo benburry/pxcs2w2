@@ -23,6 +23,7 @@
 						<p>{{ card.notes|default_if_none:""|safe }}</p>
 					</div>
 
+{% if answered %}
 {% if correct %}
 					<div class="answer-correct">
 						<p>Congratulations, you've solved this card!</p>
@@ -32,7 +33,7 @@
 						<p>Sorry, that answer wasn't correct.</p>
 					</div>
 {% endif %}
-					
+{% endif %}	
 					
 {% if form %}
 					<div class="answer-form">

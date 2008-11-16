@@ -46,6 +46,7 @@ def card_list(request):
 
 @login_required
 def view_card(request, card_id):
+    attempt = None
     card = get_object_or_404(Card, number=int(card_id))
     try:
         cardsolve = card.cardsolve_set.get(user = request.user)
@@ -62,6 +63,7 @@ def view_card(request, card_id):
             formtype = build_answer_form(card)
         
             if request.method == 'POST':
+                c['answered'] = True
                 form = formtype(request.POST)
                 c['form'] = form
         
@@ -84,7 +86,8 @@ def view_card(request, card_id):
                 form = formtype()
                 c['form'] = form
     
-    c['exceeded'] = not attempt.cansolve
+    if attempt:
+        c['exceeded'] = not attempt.cansolve
     return HttpResponse(t.render(c))
 
 
