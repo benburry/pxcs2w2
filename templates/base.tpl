@@ -63,5 +63,6 @@
 			{% endfor %}
 		</div>
 		{% endif %}
+		{% include "analytics.tpl" %}
 	</body> 
 </html>
