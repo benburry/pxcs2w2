@@ -5,12 +5,9 @@
 				</div> 
 				
 				<div class="p-box"> 
-					
-					<div class="card-box long-card-box">
-						<img src="/images/card/{{card.key}}.png" class="card-image" />
-						<p class="number"><span class="{{card.colour}}">#{{card.key}}</span></p>
-						<p class="title"><a href="{{card.get_absolute_url}}">{{card.name}}</a></p>
-					</div>
+					{% with "True" as longbox %}
+					{% include "card_snippet.tpl" %}
+					{% endwith %}
 
 {% if not solved %}
 					<div class="question-text">
