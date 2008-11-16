@@ -7,7 +7,7 @@
 <div class="card-rows">
 {% endif %}
 <div class="card-box{% if card.solved %} solved{% endif %}">
-	<img src="images/cards/{{card.key}}.png" class="card-image" />
+	<img src="/images/card/{{card.key}}.png" class="card-image" />
 	<p class="number"><span class="{{card.colour}}">#{{card.key}}</span></p>
 	<p class="title"><a href="{{card.get_absolute_url}}">{{card.name}}</a></p>
 </div>
