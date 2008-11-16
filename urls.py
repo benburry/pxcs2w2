@@ -22,7 +22,7 @@ if settings.DEBUG:
     from django.views import static
     statics_dir = os.path.join(os.path.dirname(__file__), 'statics').replace('\\','/')
     urlpatterns += patterns('',
-        (r'^styles/(?P<path>.*)$', static.serve, {'document_root': os.path.join(statics_dir, 'style')}),
+        (r'^styles/(?P<path>.*)$', static.serve, {'document_root': os.path.join(statics_dir, 'styles')}),
         (r'^js/(?P<path>.*)$', static.serve, {'document_root': os.path.join(statics_dir, 'js')}),
         (r'^images/(?P<path>.*)$', static.serve, {'document_root': os.path.join(statics_dir, 'images')}),
     )
