@@ -10,7 +10,10 @@
 				</div> 
 		
 				<div class="p-box"> 
+					
 					<h2 align="center">{% ifequal user.username username %}You have{% else %}{{username}} has{% endifequal %} solved {{solves|length}} out of 86 cards</h2>
+					
+					<div align="center"><p>Share this page with: <a href="http://s2w2.perplexcitycardmanager.co.uk/cards/solved/{{username}}/">http://s2w2.perplexcitycardmanager.co.uk/cards/solved/{{username}}/</a></p></div>
 
 <div class="card-rows">
 {% for solve in solves %}
