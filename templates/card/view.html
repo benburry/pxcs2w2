@@ -1,6 +1,6 @@
 <p>{{ card }}</p>
 <p><img src="/images/card/{{ card.key }}.png" /></p>
-<p>{{ card.question }}</p>
+<p>{{ card.question|safe }}</p>
 <p>{{ correct }}</p>
 {% if form %}
 <form method="post" action="">
