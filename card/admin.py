@@ -29,7 +29,7 @@ class CardAdmin(admin.ModelAdmin):
 class CardSolveAdmin(admin.ModelAdmin):
 	list_display = ('user', 'card', 'solved',)
 	list_display_links = ('user', 'card',)
-	list_filter = ('card', 'user',)
+	list_filter = ('card',)
     
 admin.site.register(Card, CardAdmin)
 admin.site.register(CardSolve, CardSolveAdmin)
