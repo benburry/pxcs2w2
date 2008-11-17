@@ -1,5 +1,5 @@
 from django.contrib import admin
-from pxcs2w2.card.models import Card, Answer
+from pxcs2w2.card.models import Card, Answer, CardSolve
 
 class AnswerInline(admin.TabularInline):
     model = Answer
@@ -25,7 +25,12 @@ class CardAdmin(admin.ModelAdmin):
                 'fields': ('factory', 'data',)
             }),
         )
-    
+
+class CardSolveAdmin(admin.ModelAdmin):
+	list_display = ('user', 'card', 'solved',)
+	list_display_links = ('user', 'card',)
+	list_filter = ('card', 'user',)
     
 admin.site.register(Card, CardAdmin)
+admin.site.register(CardSolve, CardSolveAdmin)
 
