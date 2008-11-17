@@ -11,7 +11,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', card_list, name='site_root'),
     (r'^cards/', include('pxcs2w2.card.urls')),
-    (r'^admin/(.*)', admin.site.root),
+    (r'^nordrassil/(.*)', admin.site.root),
     url(r'^accounts/logout/$', logout, {'next_page': '/'}, name='logout'),
     url(r'^accounts/register/$', register, name='register'),
 )
