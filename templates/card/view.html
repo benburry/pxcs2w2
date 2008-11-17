@@ -14,12 +14,7 @@
 					{% include "card_snippet.tpl" %}
 					{% endwith %}
 
-{% if exceeded %}
-	<div class="answer-incorrect">
-		<p>Sorry, you can only attempt to solve a card 3 times in 24 hours.</p>
-	</div>
-{% else %}
-{% if not solved %}
+	{% if not solved %}
 					<div class="question-text">
 						<p>{{ card.question|default_if_none:""|safe }}</p>
 					</div>
@@ -28,19 +23,23 @@
 						<p>{{ card.notes|default_if_none:""|safe }}</p>
 					</div>
 
-{% if answered %}
-{% if correct %}
+		{% if answered %}
+			{% if correct %}
 					<div class="answer-correct">
 						<p>Congratulations, you've solved this card!</p>
 					</div>
-{% else %}
+			{% else %}
 					<div class="answer-incorrect">
 						<p>Sorry, that answer wasn't correct.</p>
 					</div>
-{% endif %}
-{% endif %}	
-					
-{% if form %}
+			{% endif %}
+		{% endif %}	
+		{% if exceeded %}
+			<div class="answer-incorrect">
+				<p>Sorry, you can only attempt to solve a card 3 times in 24 hours.</p>
+			</div>
+		{% else %}			
+	{% if form %}
 					<div class="answer-form">
 						<form method="post" action="">
 {% block solveform %}
@@ -53,15 +52,16 @@
 </table>
 {% endblock solveform %}
 						</form>
-{% endif %}
+					</div>
+	{% endif %}
+	{%endif%}
 {% else %}
 <div class="already-solved">
 	<p>You have already solved this card</p>
 </div>
-{%endif%}
 {% endif %}
 
-					</div>
+					
 
 					<div class="clear"></div> 
 				</div> 
