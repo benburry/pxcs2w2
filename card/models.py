@@ -81,7 +81,7 @@ class SolveAttempt(models.Model):
         now = datetime.datetime.now()
         delta = now - (self.solve_start or now)
         
-        return delta.seconds > 86400
+        return delta.days >= 1
 
     @property
     def cansolve(self):
