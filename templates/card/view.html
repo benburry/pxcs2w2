@@ -37,6 +37,7 @@
 		{% if exceeded %}
 			<div class="answer-incorrect">
 				<p>Sorry, you can only attempt to solve a card 3 times in 24 hours.</p>
+				<p>You can try to solve this card again at {{ restart_time|date:"P D jS N T"}}</p>
 			</div>
 		{% else %}			
 	{% if form %}
@@ -57,7 +58,7 @@
 	{%endif%}
 {% else %}
 <div class="already-solved">
-	<p>You have already solved this card</p>
+	<p>You solved this card at {{ solved.solved|date:"P D jS N T"}}</p>
 </div>
 {% endif %}
 

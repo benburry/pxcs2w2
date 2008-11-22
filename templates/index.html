@@ -30,7 +30,7 @@
 				</div> 
 				
 				<div class="p-box"> 
-					<h2 align="center">Choose a card to solve</h2>
+					<h2 align="center">{% if user.is_authenticated %}Choose a card to solve{%else%}Sign in above to start solving cards{%endif%}</h2>
 
 <div class="card-rows">
 {% for card in card_list %}

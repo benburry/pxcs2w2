@@ -3,7 +3,7 @@
 <html> 
 	<head> 
 	
-		<link rel="stylesheet" type="text/css" href="/styles/core.css" /> 
+		<link rel="stylesheet" type="text/css" href="/styles/core.css?333" /> 
 		<title>Perplex City S2W2 Solver</title> 
 		</head> 
 	

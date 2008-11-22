@@ -78,14 +78,19 @@ class SolveAttempt(models.Model):
         unique_together = (('user', 'card'),)
     
     def _expired(self):
-        now = datetime.datetime.now()
-        delta = now - (self.solve_start or now)
-        
-        return delta.days >= 1
+        if self.solve_restart:
+            return datetime.datetime.now() >= self.solve_restart
+        return True
 
     @property
     def cansolve(self):
         return self._expired() or self.attempt_count < 3
+        
+    @property
+    def solve_restart(self):
+        if self.solve_start:
+            return self.solve_start + datetime.timedelta(days=1)
+        return None
         
     def incr_attempt(self):
         if self._expired():

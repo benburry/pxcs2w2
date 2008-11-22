@@ -48,13 +48,20 @@ def card_list(request):
 def view_card(request, card_id):
     attempt = None
     card = get_object_or_404(Card, number=int(card_id))
+    c = RequestContext(request, {'card': card})
+    t = loader.select_template(["card/view_%s.html" % card.key, 'card/view.html'])
+        
     try:
-        cardsolve = card.cardsolve_set.get(user = request.user)
+        firstsolve = card.cardsolve_set.order_by('solved')[0:1].get()
+        c['firstsolve'] = firstsolve
+        if firstsolve.user == request.user:
+            cardsolve = firstsolve
+        else:
+            # This is fine - if no first solve exists, neither will this
+            cardsolve = card.cardsolve_set.get(user = request.user)
     except CardSolve.DoesNotExist:
         cardsolve = None
     
-    c = RequestContext(request, {'card': card})
-    t = loader.select_template(["card/view_%s.html" % card.key, 'card/view.html'])
     c['solved'] = cardsolve
         
     if cardsolve is None:
@@ -88,6 +95,7 @@ def view_card(request, card_id):
     
     if attempt:
         c['exceeded'] = not attempt.cansolve
+        c['restart_time'] = attempt.solve_restart
     return HttpResponse(t.render(c))
 
 

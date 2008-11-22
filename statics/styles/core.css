@@ -1381,7 +1381,7 @@ a#retrolink:hover, div.hiddenstory a:hover {
 	color: #006400;
 	font-weight: bold;
 	
-	width: 300px;
+	width: 500px;
 	margin-bottom: 10px;
 }
 
@@ -1398,4 +1398,11 @@ a#retrolink:hover, div.hiddenstory a:hover {
 ul.errorlist {
 	margin-bottom: 0 !important;
 	color: #cc0000;
+}
+
+.firstsolve {
+    float: right;
+    padding: 6px;
+    background-color: #e1f1d1;	
+	border: 1px dashed #addfad;
 }
